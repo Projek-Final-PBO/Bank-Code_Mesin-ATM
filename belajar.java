@@ -3,5 +3,7 @@ public class belajar {
         System.out.println("halo");
         System.out.println("halo");
         System.out.println("halo");
+
+        System.out.println("halo tes 1 2 ");
     }
 }
