@@ -14,8 +14,8 @@ public class Akun
 {
 
     // Fields 
-    private int pin;
-    private String id;
+    private String pin;
+    private String noRek;
 
 
     public Akun()
@@ -23,19 +23,19 @@ public class Akun
 
     }
     
-    public Akun(String id) throws IOException
+    public Akun(String noRek, String pin) throws IOException
     {
-        this.id = id;
+        this.noRek = noRek;
         // Mendapatkan pin dari database
-        this.pin = getPin(id);
+        this.pin = pin;
     }
 
-    public int getPin()
+    public String getPin()
     {
         return this.pin;
     }
 
-    public int getPin(String id) throws IOException
+    public String getPin(String noRek) throws IOException
     {
         FileReader fileReader = new FileReader("DatabaseBank.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -47,9 +47,9 @@ public class Akun
         while (data != null){
             stringTokenizer = new StringTokenizer(data, ",");
             // Menemukan pin berdasarkan id yang ditentukan
-            if(id.equals(stringTokenizer.nextToken())){
+            if(noRek.equals(stringTokenizer.nextToken())){
                 // Mendapatkan pin
-                this.pin = Integer.parseInt(stringTokenizer.nextToken());
+                this.pin = stringTokenizer.nextToken();
                 break;
             }else{
                 // Membaca baris setelahnya karena bisa jadi yang sebelumnya tidak ditemukan
@@ -62,7 +62,7 @@ public class Akun
         return this.pin;
     }
     
-    public void setPin(int newPin) throws IOException
+    public void setPin(String pin) throws IOException
     {
         // Membuka file database 
         File file = new File("DatabaseDokter.txt");
@@ -83,7 +83,7 @@ public class Akun
         {
             stringTokenizer = new StringTokenizer(data, ",");
             // Move to id
-            if(id.equals(stringTokenizer.nextToken())){
+            if(noRek.equals(stringTokenizer.nextToken())){
                 // Go to old pin
                 stringTokenizer.nextToken();
                 // receive name
@@ -93,7 +93,7 @@ public class Akun
                 // receive address
                 String alamat = stringTokenizer.nextToken();
                 // copy ke databaseTemp
-                bufferedWriter.write(id + "," + Integer.toString(newPin) + "," + nama + "," + jk + "," + alamat);
+                bufferedWriter.write(noRek + "," + pin + "," + nama + "," + jk + "," + alamat);
             }else{
                 // Copy ke databaseTemp
                 bufferedWriter.write(data);
