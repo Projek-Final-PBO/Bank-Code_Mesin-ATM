@@ -217,10 +217,11 @@ public class daftarSekarang extends javax.swing.JFrame {
         
         if(saldoUser >= 50000 && (pin.equals(konfPin)) && pin.length()==5){
             dataUser.add(pin);
+            dataUser.add(saldo);
             dataUser.add(nama);
             dataUser.add(noHp);
             dataUser.add(email); 
-            dataUser.add(saldo);
+            
         }else {
          
             if(pin.length()!=5){
