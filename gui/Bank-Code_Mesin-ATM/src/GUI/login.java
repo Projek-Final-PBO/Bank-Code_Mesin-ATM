@@ -4,12 +4,20 @@
  */
 package GUI;
 
+import Class.Akun;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author taraa
  */
 public class login extends javax.swing.JFrame {
-
+    
+    static private Akun nasabah; 
     /**
      * Creates new form transfer
      */
@@ -29,13 +37,13 @@ public class login extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         daftarSekarang = new javax.swing.JLabel();
-        norekTXT = new javax.swing.JTextField();
+        pinTxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         loginBTN = new javax.swing.JButton();
-        pinTXT = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        norekTXT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,12 +62,12 @@ public class login extends javax.swing.JFrame {
         });
         jPanel2.add(daftarSekarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, 38));
 
-        norekTXT.addActionListener(new java.awt.event.ActionListener() {
+        pinTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                norekTXTActionPerformed(evt);
+                pinTxtActionPerformed(evt);
             }
         });
-        jPanel2.add(norekTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 200, 20));
+        jPanel2.add(pinTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 200, 20));
 
         jLabel3.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
@@ -87,7 +95,6 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel2.add(loginBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 66, -1));
-        jPanel2.add(pinTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 200, -1));
 
         jLabel4.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
@@ -99,6 +106,13 @@ public class login extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Belum memiliki akun?");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, 38));
+
+        norekTXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                norekTXTActionPerformed(evt);
+            }
+        });
+        jPanel2.add(norekTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 200, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 600, 460));
@@ -117,18 +131,37 @@ public class login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void norekTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_norekTXTActionPerformed
+    private void pinTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_norekTXTActionPerformed
+    }//GEN-LAST:event_pinTxtActionPerformed
 
     private void loginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBTNActionPerformed
         // TODO add your handling code here:
+        String noRek,pin;
+        noRek = norekTXT.getText();
+        pin = pinTxt.getText();
+        
+        Akun akun = new Akun();
+        
+        try {
+            if(checkNoRek(noRek) && checkPin(pin)){
+                nasabah = new Akun(noRek,pin);
+                if(pin.equals(akun.getPin())){ 
+                  
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "Akun tidak ditemukan");
+            }
+        } catch (IOException e) {
+            
+        }
     }//GEN-LAST:event_loginBTNActionPerformed
 
     private void loginBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBTNMouseClicked
         home hom = new home();
         hom.setVisible(true);
         dispose();
+        
     }//GEN-LAST:event_loginBTNMouseClicked
 
     private void daftarSekarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_daftarSekarangMouseClicked
@@ -137,6 +170,54 @@ public class login extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_daftarSekarangMouseClicked
 
+    private void norekTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_norekTXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_norekTXTActionPerformed
+
+    private static boolean checkNoRek(String noRek) throws IOException{
+        
+        boolean adaData = true;
+        FileReader fileR = new FileReader("DatabaseBank.txt");
+        BufferedReader bufferedR = new BufferedReader(fileR);
+        String data = bufferedR.readLine();
+        StringTokenizer stringTokenizer = new StringTokenizer(data,",");
+        
+        while(data != null){
+           stringTokenizer = new StringTokenizer(data,",");
+           if(noRek.equals(stringTokenizer.nextToken())){
+               adaData = true;
+               break;
+           }else{
+               adaData = false;
+           }
+           data = bufferedR.readLine();
+       }
+        bufferedR.close();
+        return adaData;
+    }
+    
+    private static boolean checkPin(String pin) throws IOException{
+        
+        boolean adaData = true;
+        FileReader fileR = new FileReader("DatabaseBank.txt");
+        BufferedReader bufferedR = new BufferedReader(fileR);
+        String data = bufferedR.readLine();
+        StringTokenizer stringTokenizer = new StringTokenizer(data,",");
+        
+        while(data != null){
+           stringTokenizer = new StringTokenizer(data.substring(6),",");
+           if(pin.equals(stringTokenizer.nextToken())){
+               adaData = true;
+               break;
+           }else{
+               adaData = false;
+           }
+           data = bufferedR.readLine();
+       }
+        bufferedR.close();
+        return adaData;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -189,6 +270,6 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton loginBTN;
     private javax.swing.JTextField norekTXT;
-    private javax.swing.JPasswordField pinTXT;
+    private javax.swing.JTextField pinTxt;
     // End of variables declaration//GEN-END:variables
 }
