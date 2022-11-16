@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package cobagui;
+package GUI;
 
 /**
  *
@@ -15,6 +15,7 @@ public class home extends javax.swing.JFrame {
      */
     public home() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -28,187 +29,168 @@ public class home extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        SetorTunaiBTN = new javax.swing.JButton();
+        tarikTunaiBTN = new javax.swing.JButton();
+        saldoBTN = new javax.swing.JButton();
+        transferBTN = new javax.swing.JButton();
+        ubahPINbtn = new javax.swing.JButton();
+        KeluarBTN = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        KeluarBTN1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 480));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
         jPanel2.setPreferredSize(new java.awt.Dimension(580, 480));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setBackground(new java.awt.Color(242, 242, 242));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("X");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setBackground(new java.awt.Color(242, 242, 242));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setText("__");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jButton3)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setFont(new java.awt.Font("Castellar", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("HOME");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, 32));
 
-        jButton4.setBackground(new java.awt.Color(0, 102, 102));
-        jButton4.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-bank-safe-24.png"))); // NOI18N
-        jButton4.setText("Setor Tunai");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+        SetorTunaiBTN.setBackground(new java.awt.Color(0, 153, 153));
+        SetorTunaiBTN.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
+        SetorTunaiBTN.setForeground(new java.awt.Color(255, 255, 255));
+        SetorTunaiBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-bank-safe-24.png"))); // NOI18N
+        SetorTunaiBTN.setText("Setor Tunai");
+        SetorTunaiBTN.setBorderPainted(false);
+        SetorTunaiBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SetorTunaiBTNMouseClicked(evt);
             }
         });
-
-        jButton5.setBackground(new java.awt.Color(0, 102, 102));
-        jButton5.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-request-money-32.png"))); // NOI18N
-        jButton5.setText(" Tarik Tunai");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        SetorTunaiBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                SetorTunaiBTNActionPerformed(evt);
             }
         });
+        jPanel2.add(SetorTunaiBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 191, 38));
 
-        jButton6.setBackground(new java.awt.Color(0, 102, 102));
-        jButton6.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-topup-payment-24.png"))); // NOI18N
-        jButton6.setText(" Informasi Saldo");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+        tarikTunaiBTN.setBackground(new java.awt.Color(0, 153, 153));
+        tarikTunaiBTN.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
+        tarikTunaiBTN.setForeground(new java.awt.Color(255, 255, 255));
+        tarikTunaiBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-request-money-32.png"))); // NOI18N
+        tarikTunaiBTN.setText(" Tarik Tunai");
+        tarikTunaiBTN.setBorderPainted(false);
+        tarikTunaiBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tarikTunaiBTNMouseClicked(evt);
             }
         });
-
-        jButton7.setBackground(new java.awt.Color(0, 102, 102));
-        jButton7.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-data-transfer-24.png"))); // NOI18N
-        jButton7.setText("Transfer");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        tarikTunaiBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                tarikTunaiBTNActionPerformed(evt);
             }
         });
+        jPanel2.add(tarikTunaiBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
 
-        jButton8.setBackground(new java.awt.Color(0, 102, 102));
-        jButton8.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-private-lock-30.png"))); // NOI18N
-        jButton8.setText("Ubah PIN");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+        saldoBTN.setBackground(new java.awt.Color(0, 153, 153));
+        saldoBTN.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
+        saldoBTN.setForeground(new java.awt.Color(255, 255, 255));
+        saldoBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-topup-payment-24.png"))); // NOI18N
+        saldoBTN.setText(" Informasi Saldo");
+        saldoBTN.setBorderPainted(false);
+        saldoBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saldoBTNMouseClicked(evt);
             }
         });
-
-        jButton9.setBackground(new java.awt.Color(0, 102, 102));
-        jButton9.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-24.png"))); // NOI18N
-        jButton9.setText("Keluar");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        saldoBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                saldoBTNActionPerformed(evt);
             }
         });
+        jPanel2.add(saldoBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 191, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(37, 37, 37)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(80, 80, 80))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8))
-                .addGap(81, 81, 81)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton9))
-                .addContainerGap(94, Short.MAX_VALUE))
-        );
+        transferBTN.setBackground(new java.awt.Color(0, 153, 153));
+        transferBTN.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
+        transferBTN.setForeground(new java.awt.Color(255, 255, 255));
+        transferBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-data-transfer-24.png"))); // NOI18N
+        transferBTN.setText("Transfer");
+        transferBTN.setBorderPainted(false);
+        transferBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                transferBTNMouseClicked(evt);
+            }
+        });
+        transferBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transferBTNActionPerformed(evt);
+            }
+        });
+        jPanel2.add(transferBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 165, 36));
+
+        ubahPINbtn.setBackground(new java.awt.Color(0, 153, 153));
+        ubahPINbtn.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
+        ubahPINbtn.setForeground(new java.awt.Color(255, 255, 255));
+        ubahPINbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-private-lock-30.png"))); // NOI18N
+        ubahPINbtn.setText("Ubah PIN");
+        ubahPINbtn.setBorderPainted(false);
+        ubahPINbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ubahPINbtnMouseClicked(evt);
+            }
+        });
+        ubahPINbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahPINbtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ubahPINbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 191, -1));
+
+        KeluarBTN.setBackground(new java.awt.Color(0, 153, 153));
+        KeluarBTN.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
+        KeluarBTN.setForeground(new java.awt.Color(255, 255, 255));
+        KeluarBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
+        KeluarBTN.setText("Profil");
+        KeluarBTN.setBorderPainted(false);
+        KeluarBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KeluarBTNMouseClicked(evt);
+            }
+        });
+        KeluarBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeluarBTNActionPerformed(evt);
+            }
+        });
+        jPanel2.add(KeluarBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 165, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Logo_BANK-removebg-preview.png"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+
+        KeluarBTN1.setBackground(new java.awt.Color(0, 153, 153));
+        KeluarBTN1.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
+        KeluarBTN1.setForeground(new java.awt.Color(255, 255, 255));
+        KeluarBTN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-24.png"))); // NOI18N
+        KeluarBTN1.setText("Keluar");
+        KeluarBTN1.setBorderPainted(false);
+        KeluarBTN1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KeluarBTN1MouseClicked(evt);
+            }
+        });
+        KeluarBTN1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeluarBTN1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(KeluarBTN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 165, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,37 +200,75 @@ public class home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void SetorTunaiBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetorTunaiBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_SetorTunaiBTNActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void tarikTunaiBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarikTunaiBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_tarikTunaiBTNActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void saldoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saldoBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_saldoBTNActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void transferBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_transferBTNActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void ubahPINbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahPINbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_ubahPINbtnActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void KeluarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_KeluarBTNActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void tarikTunaiBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tarikTunaiBTNMouseClicked
+        tariktunai tariktunai = new tariktunai();
+        tariktunai.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_tarikTunaiBTNMouseClicked
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void KeluarBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KeluarBTNMouseClicked
+        profil profil = new profil();
+        profil.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_KeluarBTNMouseClicked
+
+    private void saldoBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saldoBTNMouseClicked
+        saldo Saldo = new saldo();
+        Saldo.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_saldoBTNMouseClicked
+
+    private void transferBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transferBTNMouseClicked
+        transfer tf = new transfer();
+        tf.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_transferBTNMouseClicked
+
+    private void SetorTunaiBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetorTunaiBTNMouseClicked
+        setorTunai setor = new setorTunai();
+        setor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_SetorTunaiBTNMouseClicked
+
+    private void ubahPINbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ubahPINbtnMouseClicked
+        ubahPIN ubah = new ubahPIN();
+        ubah.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ubahPINbtnMouseClicked
+
+    private void KeluarBTN1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KeluarBTN1MouseClicked
+        login log = new login();
+        log.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_KeluarBTN1MouseClicked
+
+    private void KeluarBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarBTN1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_KeluarBTN1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,17 +306,17 @@ public class home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton KeluarBTN;
+    private javax.swing.JButton KeluarBTN1;
+    private javax.swing.JButton SetorTunaiBTN;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton saldoBTN;
+    private javax.swing.JButton tarikTunaiBTN;
+    private javax.swing.JButton transferBTN;
+    private javax.swing.JButton ubahPINbtn;
     // End of variables declaration//GEN-END:variables
 }
