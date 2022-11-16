@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ACER N
+ * @author Kelompok Bank Code
  */
 public class daftarSekarang extends javax.swing.JFrame {
     
@@ -205,41 +205,6 @@ public class daftarSekarang extends javax.swing.JFrame {
     }//GEN-LAST:event_kembaliBtnMouseClicked
 
     private void daftarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarBtnActionPerformed
-//        try{
-//            String jdbc = "com.mysql.cj.jdbc.Driver";
-//            String url = "jdbc:mysql://localhost:3306//bank-code";
-//            String root = "root";
-//            String pass = "";
-//            
-//            Class.forName(jdbc);
-//            Connection conn = DriverManager.getConnection(url,root,pass);
-//            
-//            String nama = namaTxt.getText();
-//            String pin = PIN.getText();
-//            String konfir = konfPIN.getText();
-//            String nohp = nomorHPTxt.getText();
-//            String email = emailTxt.getText();
-//            
-//            String sql = "insert into daftarAkun values (?,?,?,?,?)";
-//            
-//            
-//            PreparedStatement stm = conn.prepareStatement(sql);
-//            
-//            stm.setString(1,nama);
-//            stm.setString(2, pin);
-//            stm.setString(3, konfir);
-//            stm.setString(4, nohp);
-//            stm.setString(5, email);
-//            
-//            //ResultSet resultset = stm.executeUpdate(sql);
-//            
-//                JOptionPane.showMessageDialog(null, "Akun berhasil didaftarkan");
-//            stm.close();
-//            conn.close();
-//        }
-//        catch(Exception e){  
-//        }
-
         String nama, pin, noHp, email, saldo, konfPin;
         ArrayList<String> dataUser = new ArrayList<>();
         pin = PIN.getText();
@@ -257,30 +222,27 @@ public class daftarSekarang extends javax.swing.JFrame {
             dataUser.add(email); 
             dataUser.add(saldo);
         }else {
-            if(saldoUser<50000){
-                JOptionPane.showMessageDialog(null, "Saldo Anda Kurang");
+         
+            if(pin.length()!=5){
+                JOptionPane.showMessageDialog(null, "Format Pin Tidak Sesuai");
+                konfPIN.setText("");
+                PIN.setText("");
             }else if(!pin.equals(konfPin)){
                 JOptionPane.showMessageDialog(null, "Pin Tidak Sesuai");
-            }else if(pin.length()!=5){
-                JOptionPane.showMessageDialog(null, "Format Pin Tidak Sesuai");
-            }
-            namaTxt.setText("");
-            nomorHPTxt.setText("");
-            emailTxt.setText("");
-            saldoTxt.setText("");
-            konfPIN.setText("");
-            PIN.setText("");
+                konfPIN.setText("");
+                PIN.setText("");
+            }else if(saldoUser < 50000){
+                JOptionPane.showMessageDialog(null, "Saldo Anda Kurang");
+                konfPIN.setText("");
+                PIN.setText("");
+            }              
         }
-        
-        
+
         try {
             akunBaru(dataUser);
         } catch (IOException e) {  
         }
-         JOptionPane.showMessageDialog(this, "No Rek Anda:  " + noRek + "\nPassword Anda " + pin);
-         
-        
-        
+         JOptionPane.showMessageDialog(this, "No Rek Anda:  " + noRek + "\nPassword Anda " + pin); 
     }//GEN-LAST:event_daftarBtnActionPerformed
 
     private void nomorHPTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomorHPTxtActionPerformed
