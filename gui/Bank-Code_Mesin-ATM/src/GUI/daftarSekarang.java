@@ -5,12 +5,22 @@
  */
 package GUI;
 
+import Class.Akun;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.sql.Statement;
 import java.sql.Connection;  
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,10 +28,14 @@ import javax.swing.JOptionPane;
  * @author ACER N
  */
 public class daftarSekarang extends javax.swing.JFrame {
-
+    
+    static int random = (int) (Math.random() * (1000000 - 100000)) + 100000;
+    // convert dia ke string karena data bilangan ini akan di simpan di file database beresktensi .txt
+    static String noRek= Integer.toString(random);
     /**
      * Creates new form daftarSekarang
      */
+    
     public daftarSekarang() {
         initComponents();
         setLocationRelativeTo(this);
@@ -40,7 +54,7 @@ public class daftarSekarang extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         namaTxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        emailTxt = new javax.swing.JTextField();
+        saldoTxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -53,7 +67,7 @@ public class daftarSekarang extends javax.swing.JFrame {
         konfPIN = new javax.swing.JTextField();
         PIN = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        emailTxt1 = new javax.swing.JTextField();
+        emailTxt = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -84,13 +98,13 @@ public class daftarSekarang extends javax.swing.JFrame {
         jLabel3.setText("Atur PIN Anda ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 90, -1));
 
-        emailTxt.setText("Masukkan saldo");
-        emailTxt.addActionListener(new java.awt.event.ActionListener() {
+        saldoTxt.setText("Masukkan saldo");
+        saldoTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTxtActionPerformed(evt);
+                saldoTxtActionPerformed(evt);
             }
         });
-        getContentPane().add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 150, -1));
+        getContentPane().add(saldoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 150, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel4.setText("Rp");
@@ -154,13 +168,13 @@ public class daftarSekarang extends javax.swing.JFrame {
         jLabel11.setText("Email");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 140, -1));
 
-        emailTxt1.setText("Masukkan email");
-        emailTxt1.addActionListener(new java.awt.event.ActionListener() {
+        emailTxt.setText("Masukkan email");
+        emailTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTxt1ActionPerformed(evt);
+                emailTxtActionPerformed(evt);
             }
         });
-        getContentPane().add(emailTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 150, -1));
+        getContentPane().add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 150, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel12.setText("minimal 5 angka");
@@ -180,9 +194,9 @@ public class daftarSekarang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_namaTxtActionPerformed
 
-    private void emailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTxtActionPerformed
+    private void saldoTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saldoTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailTxtActionPerformed
+    }//GEN-LAST:event_saldoTxtActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
         login log = new login();
@@ -191,40 +205,82 @@ public class daftarSekarang extends javax.swing.JFrame {
     }//GEN-LAST:event_kembaliBtnMouseClicked
 
     private void daftarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarBtnActionPerformed
-        try{
-            String jdbc = "com.mysql.cj.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3306//bank-code";
-            String root = "root";
-            String pass = "";
-            
-            Class.forName(jdbc);
-            Connection conn = DriverManager.getConnection(url,root,pass);
-            
-            String nama = namaTxt.getText();
-            String pin = PIN.getText();
-            String konfir = konfPIN.getText();
-            String nohp = nomorHPTxt.getText();
-            String email = emailTxt.getText();
-            
-            String sql = "insert into daftarAkun values (?,?,?,?,?)";
-            
-            
-            PreparedStatement stm = conn.prepareStatement(sql);
-            
-            stm.setString(1,nama);
-            stm.setString(2, pin);
-            stm.setString(3, konfir);
-            stm.setString(4, nohp);
-            stm.setString(5, email);
-            
-            //ResultSet resultset = stm.executeUpdate(sql);
-            
-                JOptionPane.showMessageDialog(null, "Akun berhasil didaftarkan");
-            stm.close();
-            conn.close();
+//        try{
+//            String jdbc = "com.mysql.cj.jdbc.Driver";
+//            String url = "jdbc:mysql://localhost:3306//bank-code";
+//            String root = "root";
+//            String pass = "";
+//            
+//            Class.forName(jdbc);
+//            Connection conn = DriverManager.getConnection(url,root,pass);
+//            
+//            String nama = namaTxt.getText();
+//            String pin = PIN.getText();
+//            String konfir = konfPIN.getText();
+//            String nohp = nomorHPTxt.getText();
+//            String email = emailTxt.getText();
+//            
+//            String sql = "insert into daftarAkun values (?,?,?,?,?)";
+//            
+//            
+//            PreparedStatement stm = conn.prepareStatement(sql);
+//            
+//            stm.setString(1,nama);
+//            stm.setString(2, pin);
+//            stm.setString(3, konfir);
+//            stm.setString(4, nohp);
+//            stm.setString(5, email);
+//            
+//            //ResultSet resultset = stm.executeUpdate(sql);
+//            
+//                JOptionPane.showMessageDialog(null, "Akun berhasil didaftarkan");
+//            stm.close();
+//            conn.close();
+//        }
+//        catch(Exception e){  
+//        }
+
+        String nama, pin, noHp, email, saldo, konfPin;
+        ArrayList<String> dataUser = new ArrayList<>();
+        pin = PIN.getText();
+        konfPin = konfPIN.getText();
+        nama = namaTxt.getText();
+        noHp = nomorHPTxt.getText();
+        email = emailTxt.getText();
+        saldo = saldoTxt.getText();
+        double saldoUser = Double.parseDouble(saldo);
+        
+        if(saldoUser >= 50000 && (pin.equals(konfPin)) && pin.length()==5){
+            dataUser.add(pin);
+            dataUser.add(nama);
+            dataUser.add(noHp);
+            dataUser.add(email); 
+            dataUser.add(saldo);
+        }else {
+            if(saldoUser<50000){
+                JOptionPane.showMessageDialog(null, "Saldo Anda Kurang");
+            }else if(!pin.equals(konfPin)){
+                JOptionPane.showMessageDialog(null, "Pin Tidak Sesuai");
+            }else if(pin.length()!=5){
+                JOptionPane.showMessageDialog(null, "Format Pin Tidak Sesuai");
+            }
+            namaTxt.setText("");
+            nomorHPTxt.setText("");
+            emailTxt.setText("");
+            saldoTxt.setText("");
+            konfPIN.setText("");
+            PIN.setText("");
         }
-        catch(Exception e){  
+        
+        
+        try {
+            akunBaru(dataUser);
+        } catch (IOException e) {  
         }
+         JOptionPane.showMessageDialog(this, "No Rek Anda:  " + noRek + "\nPassword Anda " + pin);
+         
+        
+        
     }//GEN-LAST:event_daftarBtnActionPerformed
 
     private void nomorHPTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomorHPTxtActionPerformed
@@ -235,10 +291,22 @@ public class daftarSekarang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_konfPINActionPerformed
 
-    private void emailTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTxt1ActionPerformed
+    private void emailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailTxt1ActionPerformed
+    }//GEN-LAST:event_emailTxtActionPerformed
 
+    public static void akunBaru(ArrayList<String> dataUser)throws IOException{
+        
+        Akun akunBaru = new Akun();
+        
+        FileWriter filewr = new FileWriter("DatabaseBank.txt", true);
+        BufferedWriter bufferedWr = new BufferedWriter(filewr);
+        
+        bufferedWr.write(noRek + "," + dataUser.get(0) + "," + dataUser.get(1) + "," + dataUser.get(2) + "," + dataUser.get(3)+ "," + dataUser.get(4));
+        bufferedWr.newLine();
+        bufferedWr.flush();
+        bufferedWr.close();
+    }
     /**
      * @param args the command line arguments
      */
@@ -278,7 +346,6 @@ public class daftarSekarang extends javax.swing.JFrame {
     private javax.swing.JTextField PIN;
     private javax.swing.JButton daftarBtn;
     private javax.swing.JTextField emailTxt;
-    private javax.swing.JTextField emailTxt1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -296,5 +363,6 @@ public class daftarSekarang extends javax.swing.JFrame {
     private javax.swing.JTextField konfPIN;
     private javax.swing.JTextField namaTxt;
     private javax.swing.JTextField nomorHPTxt;
+    private javax.swing.JTextField saldoTxt;
     // End of variables declaration//GEN-END:variables
 }
