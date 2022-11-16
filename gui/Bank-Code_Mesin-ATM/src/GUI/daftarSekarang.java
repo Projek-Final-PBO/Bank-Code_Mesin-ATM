@@ -222,30 +222,27 @@ public class daftarSekarang extends javax.swing.JFrame {
             dataUser.add(email); 
             dataUser.add(saldo);
         }else {
-            if(saldoUser<50000){
-                JOptionPane.showMessageDialog(null, "Saldo Anda Kurang");
-                saldoTxt.setText("");
+         
+            if(pin.length()!=5){
+                JOptionPane.showMessageDialog(null, "Format Pin Tidak Sesuai");
+                konfPIN.setText("");
+                PIN.setText("");
             }else if(!pin.equals(konfPin)){
                 JOptionPane.showMessageDialog(null, "Pin Tidak Sesuai");
                 konfPIN.setText("");
                 PIN.setText("");
-            }else if(pin.length()!=5){
-                JOptionPane.showMessageDialog(null, "Format Pin Tidak Sesuai");
+            }else if(saldoUser < 50000){
+                JOptionPane.showMessageDialog(null, "Saldo Anda Kurang");
                 konfPIN.setText("");
                 PIN.setText("");
-            }
-                      
+            }              
         }
-        
-        
+
         try {
             akunBaru(dataUser);
         } catch (IOException e) {  
         }
-         JOptionPane.showMessageDialog(this, "No Rek Anda:  " + noRek + "\nPassword Anda " + pin);
-         
-        
-        
+         JOptionPane.showMessageDialog(this, "No Rek Anda:  " + noRek + "\nPassword Anda " + pin); 
     }//GEN-LAST:event_daftarBtnActionPerformed
 
     private void nomorHPTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomorHPTxtActionPerformed
