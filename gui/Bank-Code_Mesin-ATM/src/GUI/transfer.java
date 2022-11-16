@@ -43,25 +43,25 @@ public class transfer extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("No. Rekening Penerima :");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, 38));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, 38));
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 200, 32));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 200, 32));
 
-        jLabel3.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Jumlah :");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, 38));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 200, 32));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, 38));
+        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 200, 32));
 
         kembaliBtn.setBackground(new java.awt.Color(0, 153, 153));
         kembaliBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
@@ -79,7 +79,7 @@ public class transfer extends javax.swing.JFrame {
                 kembaliBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 66, -1));
+        jPanel2.add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 66, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/transfer.png"))); // NOI18N
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 170, 170));
@@ -90,7 +90,7 @@ public class transfer extends javax.swing.JFrame {
         tranferBtn.setBackground(new java.awt.Color(0, 153, 153));
         tranferBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         tranferBtn.setForeground(new java.awt.Color(255, 255, 255));
-        tranferBtn.setText("Tranfer");
+        tranferBtn.setText("Transfer");
         tranferBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
         tranferBtn.setBorderPainted(false);
         tranferBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +98,7 @@ public class transfer extends javax.swing.JFrame {
                 tranferBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(tranferBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 66, -1));
+        jPanel2.add(tranferBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 66, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 600, 460));

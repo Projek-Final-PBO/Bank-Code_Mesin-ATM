@@ -54,7 +54,7 @@ public class tariktunai extends javax.swing.JFrame {
                 saldoActionPerformed(evt);
             }
         });
-        jPanel1.add(saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 218, 207, 36));
+        jPanel1.add(saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 207, 36));
 
         kembaliBtn.setBackground(new java.awt.Color(0, 204, 204));
         kembaliBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
@@ -72,20 +72,20 @@ public class tariktunai extends javax.swing.JFrame {
                 kembaliBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 66, -1));
+        jPanel1.add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 66, -1));
 
         jLabel2.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("PIN");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, 38));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 30, 38));
 
         pin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pinActionPerformed(evt);
             }
         });
-        jPanel1.add(pin, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 290, 207, 36));
+        jPanel1.add(pin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 207, 36));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Logo_BANK-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, -10, -1, -1));
@@ -94,7 +94,7 @@ public class tariktunai extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Jumlah yang ingin diambil :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, 38));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 180, 30));
 
         tarikBtn.setBackground(new java.awt.Color(0, 153, 153));
         tarikBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
@@ -107,7 +107,7 @@ public class tariktunai extends javax.swing.JFrame {
                 tarikBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(tarikBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 66, -1));
+        jPanel1.add(tarikBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 66, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 460));

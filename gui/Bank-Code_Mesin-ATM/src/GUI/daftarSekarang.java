@@ -82,23 +82,21 @@ public class daftarSekarang extends javax.swing.JFrame {
         jLabel1.setText("Daftar Akun");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Bodoni MT", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel2.setText("Nama");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 40, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 120, 30));
 
-        namaTxt.setText("Masukkan Nama");
         namaTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 namaTxtActionPerformed(evt);
             }
         });
-        getContentPane().add(namaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 146, -1));
+        getContentPane().add(namaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 150, -1));
 
-        jLabel3.setFont(new java.awt.Font("Bodoni MT", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel3.setText("Atur PIN Anda ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 90, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 100, 20));
 
-        saldoTxt.setText("Masukkan saldo");
         saldoTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saldoTxtActionPerformed(evt);
@@ -110,13 +108,13 @@ public class daftarSekarang extends javax.swing.JFrame {
         jLabel4.setText("Rp");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, 20));
 
-        jLabel5.setFont(new java.awt.Font("Bodoni MT", 0, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel5.setText("Konfirmasi PIN Anda");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 140, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 140, 20));
 
-        jLabel6.setFont(new java.awt.Font("Bodoni MT", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel6.setText("Saldo awal");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 140, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 100, 20));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Logo_BANK-removebg-preview.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 170, 130));
@@ -124,8 +122,9 @@ public class daftarSekarang extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add-user.png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
 
-        kembaliBtn.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        kembaliBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         kembaliBtn.setText("Kembali");
+        kembaliBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         kembaliBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 kembaliBtnMouseClicked(evt);
@@ -133,19 +132,19 @@ public class daftarSekarang extends javax.swing.JFrame {
         });
         getContentPane().add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 80, 40));
 
+        daftarBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         daftarBtn.setText("Daftar");
         daftarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 daftarBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(daftarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 80, 40));
+        getContentPane().add(daftarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 80, 40));
 
-        jLabel10.setFont(new java.awt.Font("Bodoni MT", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel10.setText("Nomor HP");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 60, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 70, 20));
 
-        nomorHPTxt.setText("NomorHp");
         nomorHPTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomorHPTxtActionPerformed(evt);
@@ -153,22 +152,18 @@ public class daftarSekarang extends javax.swing.JFrame {
         });
         getContentPane().add(nomorHPTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 150, -1));
 
-        konfPIN.setText("Konfirmasi PIN");
         konfPIN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 konfPINActionPerformed(evt);
             }
         });
         getContentPane().add(konfPIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 150, -1));
-
-        PIN.setText("PIN");
         getContentPane().add(PIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 150, -1));
 
-        jLabel11.setFont(new java.awt.Font("Bodoni MT", 0, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel11.setText("Email");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 140, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 130, 20));
 
-        emailTxt.setText("Masukkan email");
         emailTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTxtActionPerformed(evt);
@@ -178,11 +173,11 @@ public class daftarSekarang extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel12.setText("minimal 5 angka");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, -1, 20));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, 20));
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel13.setText("minimal Rp50.000");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, -1, 20));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, -1, 20));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 460));
