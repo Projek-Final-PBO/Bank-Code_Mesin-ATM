@@ -52,7 +52,7 @@ public class home extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Castellar", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("HOME");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, 32));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, 32));
 
         SetorTunaiBTN.setBackground(new java.awt.Color(0, 153, 153));
         SetorTunaiBTN.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
@@ -70,7 +70,7 @@ public class home extends javax.swing.JFrame {
                 SetorTunaiBTNActionPerformed(evt);
             }
         });
-        jPanel2.add(SetorTunaiBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 191, 38));
+        jPanel2.add(SetorTunaiBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 190, 38));
 
         tarikTunaiBTN.setBackground(new java.awt.Color(0, 153, 153));
         tarikTunaiBTN.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
@@ -88,7 +88,7 @@ public class home extends javax.swing.JFrame {
                 tarikTunaiBTNActionPerformed(evt);
             }
         });
-        jPanel2.add(tarikTunaiBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
+        jPanel2.add(tarikTunaiBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 180, -1));
 
         saldoBTN.setBackground(new java.awt.Color(0, 153, 153));
         saldoBTN.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
@@ -106,7 +106,7 @@ public class home extends javax.swing.JFrame {
                 saldoBTNActionPerformed(evt);
             }
         });
-        jPanel2.add(saldoBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 191, -1));
+        jPanel2.add(saldoBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 300, 190, -1));
 
         transferBTN.setBackground(new java.awt.Color(0, 153, 153));
         transferBTN.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
@@ -124,7 +124,7 @@ public class home extends javax.swing.JFrame {
                 transferBTNActionPerformed(evt);
             }
         });
-        jPanel2.add(transferBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 165, 36));
+        jPanel2.add(transferBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 180, 36));
 
         ubahPINbtn.setBackground(new java.awt.Color(0, 153, 153));
         ubahPINbtn.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
@@ -142,12 +142,12 @@ public class home extends javax.swing.JFrame {
                 ubahPINbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(ubahPINbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 191, -1));
+        jPanel2.add(ubahPINbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 210, 190, -1));
 
         KeluarBTN.setBackground(new java.awt.Color(0, 153, 153));
         KeluarBTN.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
         KeluarBTN.setForeground(new java.awt.Color(255, 255, 255));
-        KeluarBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
+        KeluarBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-person-24.png"))); // NOI18N
         KeluarBTN.setText("Profil");
         KeluarBTN.setBorderPainted(false);
         KeluarBTN.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,10 +160,10 @@ public class home extends javax.swing.JFrame {
                 KeluarBTNActionPerformed(evt);
             }
         });
-        jPanel2.add(KeluarBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 165, -1));
+        jPanel2.add(KeluarBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 180, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Logo_BANK-removebg-preview.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         KeluarBTN1.setBackground(new java.awt.Color(0, 153, 153));
         KeluarBTN1.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
@@ -181,7 +181,7 @@ public class home extends javax.swing.JFrame {
                 KeluarBTN1ActionPerformed(evt);
             }
         });
-        jPanel2.add(KeluarBTN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 165, -1));
+        jPanel2.add(KeluarBTN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 180, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 480));

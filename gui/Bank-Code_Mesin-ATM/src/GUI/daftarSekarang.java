@@ -130,7 +130,7 @@ public class daftarSekarang extends javax.swing.JFrame {
                 kembaliBtnMouseClicked(evt);
             }
         });
-        getContentPane().add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 80, 40));
+        getContentPane().add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 70, 30));
 
         daftarBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         daftarBtn.setText("Daftar");
@@ -139,7 +139,7 @@ public class daftarSekarang extends javax.swing.JFrame {
                 daftarBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(daftarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 80, 40));
+        getContentPane().add(daftarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 80, 30));
 
         jLabel10.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel10.setText("Nomor HP");

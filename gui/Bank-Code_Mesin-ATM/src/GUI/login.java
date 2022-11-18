@@ -73,7 +73,7 @@ public class login extends javax.swing.JFrame {
         loginBTN.setBackground(new java.awt.Color(0, 153, 153));
         loginBTN.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         loginBTN.setForeground(new java.awt.Color(255, 255, 255));
-        loginBTN.setText("LOGIN");
+        loginBTN.setText("Masuk");
         loginBTN.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
         loginBTN.setBorderPainted(false);
         loginBTN.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -86,7 +86,7 @@ public class login extends javax.swing.JFrame {
                 loginBTNActionPerformed(evt);
             }
         });
-        jPanel2.add(loginBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 66, -1));
+        jPanel2.add(loginBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 70, 30));
         jPanel2.add(pinTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 200, -1));
 
         jLabel4.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
