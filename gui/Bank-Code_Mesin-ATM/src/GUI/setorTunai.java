@@ -4,7 +4,7 @@
  */
 package GUI;
 import Class.Akun;
-import Class.TarikUang;
+import Class.SetorUang;
 import javax.swing.JOptionPane;
 import GUI.login;
 
@@ -37,13 +37,13 @@ public class setorTunai extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        saldo = new javax.swing.JTextField();
         kembaliBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         pin = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         setorBtn = new javax.swing.JButton();
+        setor = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,13 +56,6 @@ public class setorTunai extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Saldo Anda :");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 38));
-
-        saldo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saldoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 207, 36));
 
         kembaliBtn.setBackground(new java.awt.Color(0, 153, 153));
         kembaliBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
@@ -117,6 +110,14 @@ public class setorTunai extends javax.swing.JFrame {
         });
         jPanel1.add(setorBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 66, -1));
 
+        setor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilihan Saldo -", "50000", "100000", "150000", "200000", "250000", "300000", "350000", "400000", "450000", "500000" }));
+        setor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setorActionPerformed(evt);
+            }
+        });
+        jPanel1.add(setor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 210, 30));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 460));
 
@@ -142,12 +143,29 @@ public class setorTunai extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pinActionPerformed
 
-    private void saldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saldoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_saldoActionPerformed
-
     private void setorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setorBtnActionPerformed
-        // TODO add your handling code here:
+       int IndexCombo;
+       String Pilihan;
+       IndexCombo = setor.getSelectedIndex();
+       Pilihan = (String)setor.getSelectedItem();
+       //tes.setText(Pilihan);        
+        
+       Akun akun = new Akun();
+       akun.isiDataAkun(norek);
+       //log.nomorRekening;
+       
+       int pilihan = Integer.parseInt(Pilihan);
+       int saldo = Integer.parseInt(akun.getSaldo());
+       
+       SetorUang su = new SetorUang(norek);      
+       
+       if (IndexCombo != 0){
+          su.setHasil(norek, su.GetTotalTransaksi(pilihan));
+       } else if (IndexCombo == 0){
+          JOptionPane.showMessageDialog(this, "Anda salah memilih pilihan");
+       } else {
+          JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
+       }
     }//GEN-LAST:event_setorBtnActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
@@ -155,6 +173,10 @@ public class setorTunai extends javax.swing.JFrame {
         hom.setVisible(true);
         dispose();
     }//GEN-LAST:event_kembaliBtnMouseClicked
+
+    private void setorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_setorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,7 +223,7 @@ public class setorTunai extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton kembaliBtn;
     private javax.swing.JTextField pin;
-    private javax.swing.JTextField saldo;
+    private javax.swing.JComboBox<String> setor;
     private javax.swing.JButton setorBtn;
     // End of variables declaration//GEN-END:variables
 }
