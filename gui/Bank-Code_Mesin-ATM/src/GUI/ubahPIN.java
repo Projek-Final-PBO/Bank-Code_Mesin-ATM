@@ -9,11 +9,12 @@ package GUI;
  * @author taraa
  */
 public class ubahPIN extends javax.swing.JFrame {
-
+    private static String norek;
     /**
      * Creates new form transfer
      */
-    public ubahPIN() {
+    public ubahPIN(String norek) {
+        this.norek = norek;
         initComponents();
         setLocationRelativeTo(this);
     }
@@ -136,7 +137,7 @@ public class ubahPIN extends javax.swing.JFrame {
     }//GEN-LAST:event_tranferBtnActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
-        home hom = new home();
+        home hom = new home(norek);
         hom.setVisible(true);
         dispose();
     }//GEN-LAST:event_kembaliBtnMouseClicked
@@ -176,7 +177,7 @@ public class ubahPIN extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ubahPIN().setVisible(true);
+                new ubahPIN(norek).setVisible(true);
             }
         });
     }

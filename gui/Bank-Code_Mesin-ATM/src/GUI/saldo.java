@@ -9,11 +9,12 @@ package GUI;
  * @author taraa
  */
 public class saldo extends javax.swing.JFrame {
-
+    private static String norek;
     /**
      * Creates new form saldo
      */
-    public saldo() {
+    public saldo(String norek) {
+        this.norek = norek;  
         initComponents();
         setLocationRelativeTo(this);
     }
@@ -102,7 +103,7 @@ public class saldo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        home hom = new home();
+        home hom = new home(norek);
         hom.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1MouseClicked
@@ -137,7 +138,7 @@ public class saldo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new saldo().setVisible(true);
+                new saldo(norek).setVisible(true);
             }
         });
     }

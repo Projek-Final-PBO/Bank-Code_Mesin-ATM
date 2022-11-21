@@ -17,7 +17,10 @@ import javax.swing.JOptionPane;
  */
 public class login extends javax.swing.JFrame {
     
-    static private Akun nasabah; 
+    static private Akun nasabah;
+    public String nomorRekening;
+    private String noRek,pin;
+    private Akun akun = new Akun();
     /**
      * Creates new form transfer
      */
@@ -136,18 +139,20 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_pinTxtActionPerformed
 
     private void loginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBTNActionPerformed
-        // TODO add your handling code here:
-        String noRek,pin;
         noRek = norekTXT.getText();
         pin = pinTxt.getText();
         
-        Akun akun = new Akun();
+        
+        login log = new login();
+        akun.isiDataAkun(noRek);
+        
+        
         
         try {
             if(checkNoRek(noRek) && checkPin(pin)){
                 nasabah = new Akun(noRek,pin);
                 if(pin.equals(akun.getPin())){ 
-                  
+                  log.setNomorRekening(noRek);
                 }
             }else{
                 JOptionPane.showMessageDialog(this, "Akun tidak ditemukan");
@@ -158,7 +163,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_loginBTNActionPerformed
 
     private void loginBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBTNMouseClicked
-        home hom = new home();
+        home hom = new home(noRek);
         hom.setVisible(true);
         dispose();
         
@@ -216,6 +221,14 @@ public class login extends javax.swing.JFrame {
        }
         bufferedR.close();
         return adaData;
+    }
+    
+    public String getNomorRekening(){
+        return this.nomorRekening;
+    }
+    
+    public void setNomorRekening(String nomor){
+        this.nomorRekening = nomor;
     }
     
     /**

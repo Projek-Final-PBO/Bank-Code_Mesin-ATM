@@ -3,17 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
+import Class.Akun;
+import javax.swing.JOptionPane;
+import GUI.login;
 
 /**
  *
  * @author taraa
  */
 public class tariktunai extends javax.swing.JFrame {
+    
+    private static String norek;
 
     /**
      * Creates new form tariktunai
      */
-    public tariktunai() {
+    public tariktunai(String norek) {
+        this.norek = norek;
         initComponents();
         setLocationRelativeTo(this);
     }
@@ -139,11 +145,17 @@ public class tariktunai extends javax.swing.JFrame {
     }//GEN-LAST:event_saldoActionPerformed
 
     private void tarikBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarikBtnActionPerformed
-        // TODO add your handling code here:
+       //login log = new login();
+       Akun akun = new Akun();
+       akun.isiDataAkun(norek);
+       //log.nomorRekening;
+       
+       
+       JOptionPane.showMessageDialog(this, "anj   "+akun.getNomorRekening());
     }//GEN-LAST:event_tarikBtnActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
-        home hom = new home();
+        home hom = new home(norek);
         hom.setVisible(true);
         dispose();
     }//GEN-LAST:event_kembaliBtnMouseClicked
@@ -178,7 +190,7 @@ public class tariktunai extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new tariktunai().setVisible(true);
+                new tariktunai(norek).setVisible(true);
             }
         });
     }

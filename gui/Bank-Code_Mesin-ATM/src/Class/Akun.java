@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class Akun
@@ -16,6 +17,11 @@ public class Akun
     // Fields 
     private String pin;
     private String noRek;
+    private String saldo;
+    private String username;
+    private String noHP;
+    private String email;
+    
 
 
     public Akun()
@@ -112,5 +118,59 @@ public class Akun
         file.delete();
         // Karena database yang lama itu sudah di delete maka kita harus merenamenya seperti yang sebelum di delete tadi untuk database temp ini
         temp.renameTo(file);
+    }
+    
+    public void isiDataAkun(String norek){
+        String path = "DatabaseBank.txt";
+        try {
+        // Membuka file database 
+        File file = new File(path);
+        
+        FileReader fileReader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        
+        
+
+        // Read data
+        Scanner scan = new Scanner(new File(path));
+        scan.useDelimiter("[,\\n]");
+        
+        while(scan.hasNext())
+        {
+            this.noRek = scan.next();
+            if(this.noRek.equals(norek)){
+                this.pin = scan.next();
+                this.saldo = scan.next();
+                this.username = scan.next();
+                this.noHP = scan.next();
+                this.email = scan.next();
+            }else{
+                continue;
+            }
+        }
+
+        // wajib ditutup
+        bufferedReader.close();
+        }
+        catch (Exception e){
+            
+        }
+    }
+    
+    public String getSaldo(){
+        return this.saldo;
+    }
+    
+    public String getUserName(){
+        return this.username;
+    }
+    public String getNoHp(){
+        return this.noHP;
+    }
+    public String getEmail(){
+        return this.email;
+    }
+    public String getNomorRekening(){
+        return this.noRek;
     }
 }

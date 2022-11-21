@@ -9,11 +9,12 @@ package GUI;
  * @author taraa
  */
 public class home extends javax.swing.JFrame {
-
+    private static String norek;
     /**
      * Creates new form home
      */
-    public home() {
+    public home(String norek) {
+        this.norek = norek;
         initComponents();
         setLocationRelativeTo(this);
     }
@@ -225,37 +226,37 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_KeluarBTNActionPerformed
 
     private void tarikTunaiBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tarikTunaiBTNMouseClicked
-        tariktunai tariktunai = new tariktunai();
+        tariktunai tariktunai = new tariktunai(norek);
         tariktunai.setVisible(true);
         dispose();
     }//GEN-LAST:event_tarikTunaiBTNMouseClicked
 
     private void KeluarBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KeluarBTNMouseClicked
-        profil profil = new profil();
+        profil profil = new profil(norek);
         profil.setVisible(true);
         dispose();
     }//GEN-LAST:event_KeluarBTNMouseClicked
 
     private void saldoBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saldoBTNMouseClicked
-        saldo Saldo = new saldo();
+        saldo Saldo = new saldo(norek);
         Saldo.setVisible(true);
         dispose();
     }//GEN-LAST:event_saldoBTNMouseClicked
 
     private void transferBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transferBTNMouseClicked
-        transfer tf = new transfer();
+        transfer tf = new transfer(norek);
         tf.setVisible(true);
         dispose();
     }//GEN-LAST:event_transferBTNMouseClicked
 
     private void SetorTunaiBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetorTunaiBTNMouseClicked
-        setorTunai setor = new setorTunai();
+        setorTunai setor = new setorTunai(norek);
         setor.setVisible(true);
         dispose();
     }//GEN-LAST:event_SetorTunaiBTNMouseClicked
 
     private void ubahPINbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ubahPINbtnMouseClicked
-        ubahPIN ubah = new ubahPIN();
+        ubahPIN ubah = new ubahPIN(norek);
         ubah.setVisible(true);
         dispose();
     }//GEN-LAST:event_ubahPINbtnMouseClicked
@@ -300,7 +301,7 @@ public class home extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new home().setVisible(true);
+                new home(norek).setVisible(true);
             }
         });
     }

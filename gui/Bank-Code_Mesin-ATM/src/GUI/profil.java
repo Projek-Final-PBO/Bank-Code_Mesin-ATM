@@ -9,11 +9,12 @@ package GUI;
  * @author taraa
  */
 public class profil extends javax.swing.JFrame {
-
+    private static String norek;
     /**
      * Creates new form transfer
      */
-    public profil() {
+    public profil(String norek) {
+        this.norek = norek;
         initComponents();
         setLocationRelativeTo(this);
     }
@@ -138,7 +139,7 @@ public class profil extends javax.swing.JFrame {
     }//GEN-LAST:event_tranferBtnActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
-        home hom = new home();
+        home hom = new home(norek);
         hom.setVisible(true);
         dispose();
     }//GEN-LAST:event_kembaliBtnMouseClicked
@@ -176,7 +177,7 @@ public class profil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new profil().setVisible(true);
+                new profil(norek).setVisible(true);
             }
         });
     }
