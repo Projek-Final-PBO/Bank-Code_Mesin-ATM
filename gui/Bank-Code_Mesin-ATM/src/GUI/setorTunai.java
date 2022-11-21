@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
+import Class.Akun;
+import Class.TarikUang;
+import javax.swing.JOptionPane;
+import GUI.login;
 
 /**
  *
@@ -17,6 +21,9 @@ public class setorTunai extends javax.swing.JFrame {
         this.norek = norek;
         initComponents();
         setLocationRelativeTo(this);
+        Akun akun = new Akun();
+        akun.isiDataAkun(norek);
+        //saldofield.setText(akun.getSaldo());
     }
 
     /**
