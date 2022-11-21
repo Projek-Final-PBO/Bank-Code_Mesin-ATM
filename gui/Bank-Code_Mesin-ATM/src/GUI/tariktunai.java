@@ -4,6 +4,7 @@
  */
 package GUI;
 import Class.Akun;
+import Class.TarikUang;
 import javax.swing.JOptionPane;
 import GUI.login;
 
@@ -22,6 +23,9 @@ public class tariktunai extends javax.swing.JFrame {
         this.norek = norek;
         initComponents();
         setLocationRelativeTo(this);
+        Akun akun = new Akun();
+        akun.isiDataAkun(norek);
+        saldofield.setText(akun.getSaldo());
     }
 
     /**
@@ -35,13 +39,15 @@ public class tariktunai extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        saldo = new javax.swing.JTextField();
         kembaliBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         pin = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         tarikBtn = new javax.swing.JButton();
+        PilihanTarik = new javax.swing.JComboBox<>();
+        tes = new javax.swing.JTextField();
+        saldofield = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,13 +60,6 @@ public class tariktunai extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Saldo Anda :");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 38));
-
-        saldo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saldoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 207, 36));
 
         kembaliBtn.setBackground(new java.awt.Color(0, 204, 204));
         kembaliBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
@@ -115,6 +114,20 @@ public class tariktunai extends javax.swing.JFrame {
         });
         jPanel1.add(tarikBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 66, -1));
 
+        PilihanTarik.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilih Saldo -", "50000", "100000", "150000", "200000", "250000", "300000", "350000", "400000", "450000", "500000" }));
+        jPanel1.add(PilihanTarik, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 210, 40));
+
+        tes.setText("hai");
+        tes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(tes, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 100, -1));
+
+        saldofield.setEditable(false);
+        jPanel1.add(saldofield, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 90, -1));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 460));
 
@@ -140,18 +153,29 @@ public class tariktunai extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pinActionPerformed
 
-    private void saldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saldoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_saldoActionPerformed
-
     private void tarikBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarikBtnActionPerformed
-       //login log = new login();
+       int IndexCombo;
+       String Pilihan;
+       IndexCombo = PilihanTarik.getSelectedIndex();
+       Pilihan = (String)PilihanTarik.getSelectedItem();
+       tes.setText(Pilihan);        
+        
        Akun akun = new Akun();
        akun.isiDataAkun(norek);
        //log.nomorRekening;
        
+       int pilihan = Integer.parseInt(Pilihan);
+       int saldo = Integer.parseInt(akun.getSaldo());
        
-       JOptionPane.showMessageDialog(this, "anj   "+akun.getNomorRekening());
+       TarikUang tu = new TarikUang(norek);      
+       
+       if (saldo - pilihan >= 0){
+          tu.setHasil(norek, tu.GetTotalTransaksi(pilihan));
+       } else {
+           JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
+       }
+       
+       
     }//GEN-LAST:event_tarikBtnActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
@@ -159,6 +183,10 @@ public class tariktunai extends javax.swing.JFrame {
         hom.setVisible(true);
         dispose();
     }//GEN-LAST:event_kembaliBtnMouseClicked
+
+    private void tesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,6 +224,7 @@ public class tariktunai extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> PilihanTarik;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -204,7 +233,8 @@ public class tariktunai extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton kembaliBtn;
     private javax.swing.JTextField pin;
-    private javax.swing.JTextField saldo;
+    private javax.swing.JTextField saldofield;
     private javax.swing.JButton tarikBtn;
+    private javax.swing.JTextField tes;
     // End of variables declaration//GEN-END:variables
 }
