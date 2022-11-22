@@ -4,12 +4,15 @@
  */
 package GUI;
 
+import Class.Akun;
+
 /**
  *
  * @author taraa
  */
 public class saldo extends javax.swing.JFrame {
     private static String norek;
+    private static Akun akun = new Akun();    
     /**
      * Creates new form saldo
      */
@@ -17,6 +20,8 @@ public class saldo extends javax.swing.JFrame {
         this.norek = norek;  
         initComponents();
         setLocationRelativeTo(this);
+        akun.isiDataAkun(norek);
+        saldotxt.setText(akun.getSaldo());
     }
 
     /**
@@ -30,7 +35,7 @@ public class saldo extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        saldotxt = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -46,7 +51,9 @@ public class saldo extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Saldo Anda :");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, 38));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 207, 36));
+
+        saldotxt.setEditable(false);
+        jPanel2.add(saldotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 207, 36));
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
         jButton1.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
@@ -141,6 +148,6 @@ public class saldo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField saldotxt;
     // End of variables declaration//GEN-END:variables
 }

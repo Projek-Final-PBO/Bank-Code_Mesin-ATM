@@ -4,6 +4,10 @@
  */
 package GUI;
 
+import Class.Akun;
+import Class.Transfer;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author taraa
@@ -30,9 +34,9 @@ public class transfer extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        norekpen = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jumlah = new javax.swing.JTextField();
         kembaliBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -50,19 +54,19 @@ public class transfer extends javax.swing.JFrame {
         jLabel2.setText("No. Rekening Penerima :");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, 38));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        norekpen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                norekpenActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 200, 32));
+        jPanel2.add(norekpen, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 200, 32));
 
         jLabel3.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Jumlah :");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, 38));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 200, 32));
+        jPanel2.add(jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 200, 32));
 
         kembaliBtn.setBackground(new java.awt.Color(0, 153, 153));
         kembaliBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
@@ -122,12 +126,21 @@ public class transfer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_kembaliBtnActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void norekpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_norekpenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_norekpenActionPerformed
 
     private void tranferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tranferBtnActionPerformed
-        // TODO add your handling code here:
+        Akun akun = new Akun();
+        akun.isiDataAkun(norek);
+        int jumlahtf = Integer.parseInt(jumlah.getText());
+        int saldo = Integer.parseInt(akun.getSaldo());
+        Transfer tf = new Transfer(norek, norekpen.getText());
+        if(saldo - jumlahtf >= 0){
+           tf.Transfer(jumlahtf);
+       } else {
+           JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
+       }
     }//GEN-LAST:event_tranferBtnActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
@@ -178,9 +191,9 @@ public class transfer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jumlah;
     private javax.swing.JButton kembaliBtn;
+    private javax.swing.JTextField norekpen;
     private javax.swing.JButton tranferBtn;
     // End of variables declaration//GEN-END:variables
 }
