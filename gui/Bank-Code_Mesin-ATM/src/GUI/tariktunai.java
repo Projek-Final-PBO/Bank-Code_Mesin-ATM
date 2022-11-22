@@ -153,7 +153,11 @@ public class tariktunai extends javax.swing.JFrame {
        
        TarikUang tu = new TarikUang(norek);      
        if(saldo - pilihan >= 0){
-           akun.setHasil(norek, tu.GetTotalTransaksi(pilihan));
+           try{
+            akun.setHasil(norek, tu.GetTotalTransaksi(pilihan));
+           } catch (Exception e){
+               
+           }
            
        } else {
            JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");

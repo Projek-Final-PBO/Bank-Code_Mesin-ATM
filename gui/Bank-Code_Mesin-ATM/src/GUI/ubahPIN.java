@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import Class.Akun;
+
 /**
  *
  * @author taraa
@@ -32,7 +34,7 @@ public class ubahPIN extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        pinBarutxt = new javax.swing.JTextField();
         kembaliBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -63,12 +65,12 @@ public class ubahPIN extends javax.swing.JFrame {
         jLabel3.setText("PIN baru");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, 38));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        pinBarutxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                pinBarutxtActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 200, 32));
+        jPanel2.add(pinBarutxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 200, 32));
 
         kembaliBtn.setBackground(new java.awt.Color(0, 153, 153));
         kembaliBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
@@ -133,7 +135,14 @@ public class ubahPIN extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void tranferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tranferBtnActionPerformed
-        // TODO add your handling code here:
+        Akun akun = new Akun();
+        String pinB = pinBarutxt.getText();
+        try{
+        akun.setPin(pinB);
+        }
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_tranferBtnActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
@@ -142,9 +151,9 @@ public class ubahPIN extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_kembaliBtnMouseClicked
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void pinBarutxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinBarutxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_pinBarutxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,8 +199,8 @@ public class ubahPIN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton kembaliBtn;
+    private javax.swing.JTextField pinBarutxt;
     private javax.swing.JButton tranferBtn;
     // End of variables declaration//GEN-END:variables
 }

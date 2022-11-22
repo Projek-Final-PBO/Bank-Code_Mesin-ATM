@@ -22,7 +22,7 @@ public class profil extends javax.swing.JFrame {
         setLocationRelativeTo(this);
         akun.isiDataAkun(norek);
         namatxt.setText(akun.getUserName());
-        norektxt.setText(akun.getNomorRekening());
+        norektxt.setText(this.norek);
         nohptxt.setText(akun.getNoHp());
         emailtxt.setText(akun.getEmail());
 

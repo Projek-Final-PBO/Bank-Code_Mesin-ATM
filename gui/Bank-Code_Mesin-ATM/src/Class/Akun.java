@@ -70,14 +70,15 @@ public class Akun
         }
         // wajib ditutup
         bufferedReader.close();
+        fileReader.close();
 
         return this.pin;
     }
     
-    public void setPin(String pin) throws IOException
+    public void setPin(String pinBaru) throws IOException
     {
         // Membuka file database 
-        File file = new File("DatabaseDokter.txt");
+        File file = new File("DatabaseBank.txt");
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -98,14 +99,16 @@ public class Akun
             if(noRek.equals(stringTokenizer.nextToken())){
                 // Go to old pin
                 stringTokenizer.nextToken();
-                // receive name
-                String nama = stringTokenizer.nextToken();
-                // receive gender
-                String jk = stringTokenizer.nextToken();
-                // receive address
-                String alamat = stringTokenizer.nextToken();
+                // receive saldo
+                String saldot = stringTokenizer.nextToken();
+                // receive username
+                String usernamet = stringTokenizer.nextToken();
+                // receive noHP
+                String noHPt = stringTokenizer.nextToken();
+                // receive email
+                String emailt = stringTokenizer.nextToken();
                 // copy ke databaseTemp
-                bufferedWriter.write(noRek + "," + pin + "," + nama + "," + jk + "," + alamat);
+                bufferedWriter.write(noRek + "," + pinBaru + "," + saldot + "," + usernamet + "," + noHPt+ "," + emailt);
             }else{
                 // Copy ke databaseTemp
                 bufferedWriter.write(data);
@@ -163,10 +166,10 @@ public class Akun
         }
     }
     
-    public void setHasil(String norek, int hasil){
+    public void setHasil(String norek, int hasil) throws IOException{
         String path = "DatabaseBank.txt";
         String temp = "TempDatabase.txt";
-        try {
+        //try {
         // Membuka file database 
         File fileAwal = new File(path);
         File fileTemp = new File(temp);
@@ -229,10 +232,10 @@ public class Akun
         //    fileAwal.delet();
                     
         //}
-        }
-        catch (Exception e){
+        //}
+        //catch (Exception e){
             
-        }
+        //}
     }
     
     
@@ -267,29 +270,49 @@ public class Akun
         bufferedWr.close();
     }
     
-    public boolean checkNoRek(String noRek) throws IOException{
+    public boolean checkNoRek(String noReken,String pinen) throws IOException{
         
         boolean adaData = true;
-        FileReader fileR = new FileReader("DatabaseBank.txt");
-        BufferedReader bufferedR = new BufferedReader(fileR);
-        String data = bufferedR.readLine();
-        StringTokenizer stringTokenizer = new StringTokenizer(data,",");
+        String path = "DatabaseBank.txt";
+        try {
+        // Membuka file database 
+        File file = new File(path);
         
-        while(data != null){
-           stringTokenizer = new StringTokenizer(data,",");
-           if(noRek.equals(stringTokenizer.nextToken())){
-               adaData = true;
-               break;
-           }else{
-               adaData = false;
-           }
-           data = bufferedR.readLine();
-       }
-        bufferedR.close();
+        FileReader fileReader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+               
+        // Read data
+        Scanner scan = new Scanner(new File(path));
+        scan.useDelimiter("[,\\n]");
+        
+        String noReke, pine,saldoe, usernamee,noHPe,emaile;
+        
+        while(scan.hasNext())
+        {
+            noReke = scan.next();
+            pine = scan.next();
+            saldoe = scan.next();
+            usernamee = scan.next();
+            noHPe = scan.next();
+            emaile = scan.next();
+            if(noReke.equals(noReken) && pine.equals(pinen)){
+                adaData = true;
+                break;
+            }else{
+                adaData = false;
+            }
+        }
+
+        // wajib ditutup
+        bufferedReader.close();
+        }
+        catch (Exception e){
+            
+        }
         return adaData;
     }
     
-    public boolean checkPin(String pin) throws IOException{
+    public boolean checkPin() throws IOException{
         
         boolean adaData = true;
         FileReader fileR = new FileReader("DatabaseBank.txt");
@@ -310,6 +333,7 @@ public class Akun
         bufferedR.close();
         return adaData;
     }
+
     
     public String getSaldo(){
         return this.saldo;

@@ -28,8 +28,13 @@ public class Transfer extends Transaksi{
         Akun akunpenerima = new Akun();
         TarikUang tu = new TarikUang(akun.getNomorRekening());
         SetorUang su = new SetorUang(akunpenerima.getNomorRekening());
+        try {
         akun.setHasil(akun.getNomorRekening(),tu.GetTotalTransaksi(jumlah));
-        akunpenerima.setHasil(akunpenerima.getNomorRekening(),su.GetTotalTransaksi(jumlah));       
+        akunpenerima.setHasil(akunpenerima.getNomorRekening(),su.GetTotalTransaksi(jumlah));
+        }
+        catch (Exception e){
+            
+        }
     }
     
 }

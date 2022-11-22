@@ -154,7 +154,11 @@ public class setorTunai extends javax.swing.JFrame {
        SetorUang su = new SetorUang(norek);      
        
        if (IndexCombo != 0 && pin.equals(akun.getPin())){
-          akun.setHasil(norek, su.GetTotalTransaksi(pilihan));
+           try{
+            akun.setHasil(norek, su.GetTotalTransaksi(pilihan));
+           } catch (Exception e){
+               
+           }
        } else if (IndexCombo == 0){
           JOptionPane.showMessageDialog(this, "Anda salah memilih pilihan");
        } else if (!pin.equals(akun.getPin())){

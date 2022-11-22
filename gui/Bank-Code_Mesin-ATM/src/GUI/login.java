@@ -144,12 +144,12 @@ public class login extends javax.swing.JFrame {
         
         
         login log = new login();
-        akun.isiDataAkun(noRek);
+        //akun.isiDataAkun(noRek);
         
         
         
         try {
-            if(akun.checkNoRek(noRek) && akun.checkPin(pin)){
+            if(akun.checkNoRek(noRek, pin)){
                 nasabah = new Akun(noRek,pin);
                 if(pin.equals(akun.getPin())){ 
                   log.setNomorRekening(noRek);
@@ -179,8 +179,7 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_norekTXTActionPerformed
 
-    
-    
+        
     public String getNomorRekening(){
         return this.nomorRekening;
     }
