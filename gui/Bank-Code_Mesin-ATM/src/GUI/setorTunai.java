@@ -36,7 +36,6 @@ public class setorTunai extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         kembaliBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         pin = new javax.swing.JTextField();
@@ -51,11 +50,6 @@ public class setorTunai extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("Saldo Anda :");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 38));
 
         kembaliBtn.setBackground(new java.awt.Color(0, 153, 153));
         kembaliBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
@@ -159,10 +153,12 @@ public class setorTunai extends javax.swing.JFrame {
        
        SetorUang su = new SetorUang(norek);      
        
-       if (IndexCombo != 0){
-          su.setHasil(norek, su.GetTotalTransaksi(pilihan));
+       if (IndexCombo != 0 && pin.equals(akun.getPin())){
+          akun.setHasil(norek, su.GetTotalTransaksi(pilihan));
        } else if (IndexCombo == 0){
           JOptionPane.showMessageDialog(this, "Anda salah memilih pilihan");
+       } else if (!pin.equals(akun.getPin())){
+          JOptionPane.showMessageDialog(this, "Pin yang anda masukkan salah");
        } else {
           JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
        }
@@ -215,7 +211,6 @@ public class setorTunai extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
