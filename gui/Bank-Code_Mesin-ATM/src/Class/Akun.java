@@ -8,6 +8,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -155,6 +161,154 @@ public class Akun
         catch (Exception e){
             
         }
+    }
+    
+    public void setHasil(String norek, int hasil){
+        String path = "DatabaseBank.txt";
+        String temp = "TempDatabase.txt";
+        try {
+        // Membuka file database 
+        File fileAwal = new File(path);
+        File fileTemp = new File(temp);
+
+        FileWriter fw = new FileWriter(temp, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+        PrintWriter pw = new PrintWriter(bw);
+        
+        String noRek;
+        String pin;
+        String saldo;
+        String username;
+        String noHP;
+        String email;
+       
+        String saldoBaru = String.valueOf(hasil);
+
+        // Read data
+        Scanner scan = new Scanner(new File(path));
+        scan.useDelimiter("[,\n]");
+        
+        while(scan.hasNext())
+        {
+            noRek = scan.next();
+            pin = scan.next();
+            saldo = scan.next();
+            username = scan.next();
+            noHP = scan.next();
+            email = scan.next();
+            if(noRek.equals(norek)){
+                bw.write(noRek + "," + pin + "," + saldoBaru + "," + username + "," + noHP+ "," + email);
+                //bw.newLine();
+            }else{
+                bw.write(noRek + "," + pin + "," + saldo + "," + username + "," + noHP+ "," + email);
+                //bw.newLine();
+            }
+        }
+
+        // wajib ditutup
+        scan.close();
+        pw.flush();
+        pw.close();
+        bw.flush();
+        bw.close();
+        //fileAwal.delete();
+        
+       //Path fileAsli = Paths.get(path);
+       //Path fileBaru = Paths.get(temp);
+        
+        
+        //Files.move(fileBaru, fileBaru.resolveSibling(path));
+        //fileTemp.delete();
+        
+        //File dump = new File(path);
+        //fileTemp.renameTo(fileAwal);
+        
+        //if(fileTemp.renameTo(fileAwal))
+        //{
+        //    fileAwal.delet();
+                    
+        //}
+        }
+        catch (Exception e){
+            
+        }
+    }
+    
+    
+    public void update(){
+        String path = "DatabaseBank.txt";
+        String temp = "TempDatabase.txt";
+        Path fileAsli = Paths.get(path);
+        //String temp2 = "Temp2Database.txt";
+
+        File fileAwal = new File(path);
+        File fileTemp = new File(temp);
+        //File fileTemp2 = new File(temp2);
+
+        fileAwal.delete();
+        //Files.delete(fileAsli);
+        fileTemp.renameTo(fileAwal);
+    }
+    
+    public void akunBaru(ArrayList<String> dataUser)throws IOException{
+        int random = (int) (Math.random() * (1000000 - 100000)) + 100000;
+        // convert dia ke string karena data bilangan ini akan di simpan di file database beresktensi .txt
+        String noRekening= Integer.toString(random);
+        
+        this.noRek = noRekening;
+        
+        FileWriter filewr = new FileWriter("DatabaseBank.txt", true);
+        BufferedWriter bufferedWr = new BufferedWriter(filewr);
+        
+        bufferedWr.write(noRekening+ "," + dataUser.get(0) + "," + dataUser.get(1) + "," + dataUser.get(2) + "," + dataUser.get(3)+ "," + dataUser.get(4));
+        bufferedWr.newLine();
+        bufferedWr.flush();
+        bufferedWr.close();
+    }
+    
+    public boolean checkNoRek(String noRek) throws IOException{
+        
+        boolean adaData = true;
+        FileReader fileR = new FileReader("DatabaseBank.txt");
+        BufferedReader bufferedR = new BufferedReader(fileR);
+        String data = bufferedR.readLine();
+        StringTokenizer stringTokenizer = new StringTokenizer(data,",");
+        
+        while(data != null){
+           stringTokenizer = new StringTokenizer(data,",");
+           if(noRek.equals(stringTokenizer.nextToken())){
+               adaData = true;
+               break;
+           }else{
+               adaData = false;
+           }
+           data = bufferedR.readLine();
+       }
+        bufferedR.close();
+        return adaData;
+    }
+    
+    public boolean checkPin(String pin) throws IOException{
+        
+        boolean adaData = true;
+        FileReader fileR = new FileReader("DatabaseBank.txt");
+        BufferedReader bufferedR = new BufferedReader(fileR);
+        String data = bufferedR.readLine();
+        StringTokenizer stringTokenizer = new StringTokenizer(data,",");
+        
+        while(data != null){
+           stringTokenizer = new StringTokenizer(data.substring(6),",");
+           if(pin.equals(stringTokenizer.nextToken())){
+               adaData = true;
+               break;
+           }else{
+               adaData = false;
+           }
+           data = bufferedR.readLine();
+       }
+        bufferedR.close();
+        return adaData;
     }
     
     public String getSaldo(){

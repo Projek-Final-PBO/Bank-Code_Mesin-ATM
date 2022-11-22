@@ -149,7 +149,7 @@ public class login extends javax.swing.JFrame {
         
         
         try {
-            if(checkNoRek(noRek) && checkPin(pin)){
+            if(akun.checkNoRek(noRek) && akun.checkPin(pin)){
                 nasabah = new Akun(noRek,pin);
                 if(pin.equals(akun.getPin())){ 
                   log.setNomorRekening(noRek);
@@ -179,49 +179,7 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_norekTXTActionPerformed
 
-    private static boolean checkNoRek(String noRek) throws IOException{
-        
-        boolean adaData = true;
-        FileReader fileR = new FileReader("DatabaseBank.txt");
-        BufferedReader bufferedR = new BufferedReader(fileR);
-        String data = bufferedR.readLine();
-        StringTokenizer stringTokenizer = new StringTokenizer(data,",");
-        
-        while(data != null){
-           stringTokenizer = new StringTokenizer(data,",");
-           if(noRek.equals(stringTokenizer.nextToken())){
-               adaData = true;
-               break;
-           }else{
-               adaData = false;
-           }
-           data = bufferedR.readLine();
-       }
-        bufferedR.close();
-        return adaData;
-    }
     
-    private static boolean checkPin(String pin) throws IOException{
-        
-        boolean adaData = true;
-        FileReader fileR = new FileReader("DatabaseBank.txt");
-        BufferedReader bufferedR = new BufferedReader(fileR);
-        String data = bufferedR.readLine();
-        StringTokenizer stringTokenizer = new StringTokenizer(data,",");
-        
-        while(data != null){
-           stringTokenizer = new StringTokenizer(data.substring(6),",");
-           if(pin.equals(stringTokenizer.nextToken())){
-               adaData = true;
-               break;
-           }else{
-               adaData = false;
-           }
-           data = bufferedR.readLine();
-       }
-        bufferedR.close();
-        return adaData;
-    }
     
     public String getNomorRekening(){
         return this.nomorRekening;

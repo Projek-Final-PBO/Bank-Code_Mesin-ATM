@@ -31,5 +31,5 @@ public abstract class Transaksi {
     }
     
     public abstract int GetTotalTransaksi(int jumlah);
-    public abstract void setHasil(String noRek, int jumlah);
+    //public abstract void setHasil(String noRek, int jumlah);
 }

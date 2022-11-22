@@ -29,9 +29,7 @@ import javax.swing.JOptionPane;
  */
 public class daftarSekarang extends javax.swing.JFrame {
     
-    static int random = (int) (Math.random() * (1000000 - 100000)) + 100000;
-    // convert dia ke string karena data bilangan ini akan di simpan di file database beresktensi .txt
-    static String noRek= Integer.toString(random);
+    
     /**
      * Creates new form daftarSekarang
      */
@@ -202,6 +200,7 @@ public class daftarSekarang extends javax.swing.JFrame {
     private void daftarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarBtnActionPerformed
         String nama, pin, noHp, email, saldo, konfPin;
         ArrayList<String> dataUser = new ArrayList<>();
+        Akun akunBaru = new Akun();
         pin = PIN.getText();
         konfPin = konfPIN.getText();
         nama = namaTxt.getText();
@@ -235,10 +234,10 @@ public class daftarSekarang extends javax.swing.JFrame {
         }
 
         try {
-            akunBaru(dataUser);
+            akunBaru.akunBaru(dataUser);
         } catch (IOException e) {  
         }
-         JOptionPane.showMessageDialog(this, "No Rek Anda:  " + noRek + "\nPassword Anda " + pin); 
+         JOptionPane.showMessageDialog(this, "No Rek Anda:  " + akunBaru.getNomorRekening() + "\nPassword Anda " + pin); 
     }//GEN-LAST:event_daftarBtnActionPerformed
 
     private void nomorHPTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomorHPTxtActionPerformed
@@ -253,18 +252,7 @@ public class daftarSekarang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTxtActionPerformed
 
-    public static void akunBaru(ArrayList<String> dataUser)throws IOException{
-        
-        Akun akunBaru = new Akun();
-        
-        FileWriter filewr = new FileWriter("DatabaseBank.txt", true);
-        BufferedWriter bufferedWr = new BufferedWriter(filewr);
-        
-        bufferedWr.write(noRek + "," + dataUser.get(0) + "," + dataUser.get(1) + "," + dataUser.get(2) + "," + dataUser.get(3)+ "," + dataUser.get(4));
-        bufferedWr.newLine();
-        bufferedWr.flush();
-        bufferedWr.close();
-    }
+    
     /**
      * @param args the command line arguments
      */
