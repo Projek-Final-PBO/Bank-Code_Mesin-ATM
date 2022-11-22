@@ -4,12 +4,15 @@
  */
 package GUI;
 
+import Class.Akun;
+
 /**
  *
  * @author taraa
  */
 public class profil extends javax.swing.JFrame {
     private static String norek;
+    private static Akun akun = new Akun();
     /**
      * Creates new form transfer
      */
@@ -17,6 +20,12 @@ public class profil extends javax.swing.JFrame {
         this.norek = norek;
         initComponents();
         setLocationRelativeTo(this);
+        akun.isiDataAkun(norek);
+        namatxt.setText(akun.getUserName());
+        norektxt.setText(akun.getNomorRekening());
+        nohptxt.setText(akun.getNoHp());
+        emailtxt.setText(akun.getEmail());
+
     }
 
     /**
@@ -37,10 +46,10 @@ public class profil extends javax.swing.JFrame {
         tranferBtn = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        emailtxt = new javax.swing.JTextField();
+        norektxt = new javax.swing.JTextField();
+        nohptxt = new javax.swing.JTextField();
+        namatxt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,10 +117,18 @@ public class profil extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("No. HP :");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 248, -1, 30));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 200, -1));
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 200, -1));
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 200, -1));
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 200, -1));
+
+        emailtxt.setEditable(false);
+        jPanel2.add(emailtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 200, -1));
+
+        norektxt.setEditable(false);
+        jPanel2.add(norektxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 200, -1));
+
+        nohptxt.setEditable(false);
+        jPanel2.add(nohptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 200, -1));
+
+        namatxt.setEditable(false);
+        jPanel2.add(namatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 200, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 600, 460));
@@ -183,6 +200,7 @@ public class profil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField emailtxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -191,11 +209,10 @@ public class profil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JButton kembaliBtn;
+    private javax.swing.JTextField namatxt;
+    private javax.swing.JTextField nohptxt;
+    private javax.swing.JTextField norektxt;
     private javax.swing.JButton tranferBtn;
     // End of variables declaration//GEN-END:variables
 }
