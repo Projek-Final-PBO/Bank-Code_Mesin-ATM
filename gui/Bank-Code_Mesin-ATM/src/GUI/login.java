@@ -70,7 +70,7 @@ public class login extends javax.swing.JFrame {
                 pinTxtActionPerformed(evt);
             }
         });
-        jPanel2.add(pinTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 200, 20));
+        jPanel2.add(pinTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 200, 30));
 
         jLabel3.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
@@ -115,7 +115,7 @@ public class login extends javax.swing.JFrame {
                 norekTXTActionPerformed(evt);
             }
         });
-        jPanel2.add(norekTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 200, 20));
+        jPanel2.add(norekTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 200, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 600, 460));
