@@ -30,7 +30,8 @@ import javax.swing.JOptionPane;
 public class daftarSekarang extends javax.swing.JFrame {
     
     static int random = (int) (Math.random() * (1000000 - 100000)) + 100000;
-    // convert dia ke string karena data bilangan ini akan di simpan di file database beresktensi .txt
+    // Membuat noRek random dan
+    //convert dia ke string karena data bilangan ini akan di simpan di file database beresktensi .txt
     static String noRek= Integer.toString(random);
     /**
      * Creates new form daftarSekarang
@@ -38,6 +39,7 @@ public class daftarSekarang extends javax.swing.JFrame {
     
     public daftarSekarang() {
         initComponents();
+        //Mengatur agar lokasi design berada di tengah layar
         setLocationRelativeTo(this);
     }
 
@@ -131,6 +133,11 @@ public class daftarSekarang extends javax.swing.JFrame {
                 kembaliBtnMouseClicked(evt);
             }
         });
+        kembaliBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kembaliBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 80, 40));
 
         daftarBtn.setText("Daftar");
@@ -197,14 +204,25 @@ public class daftarSekarang extends javax.swing.JFrame {
     private void saldoTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saldoTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_saldoTxtActionPerformed
-
+    
+    /**
+     * Method untuk mengatur agar saat user
+     * menekan tombol "Kembali" maka akan
+     * terbuka tampilan dari class login
+     * @param evt 
+     */
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
         login log = new login();
         log.setVisible(true);
         dispose();
     }//GEN-LAST:event_kembaliBtnMouseClicked
-
+    
+    /**
+     * Method untuk mendaftarkan akun bank baru 
+     * @param evt 
+     */
     private void daftarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarBtnActionPerformed
+        //Inisialisasi Variabel yang diperlukann untuk membuat akun bank
         String nama, pin, noHp, email, saldo, konfPin;
         ArrayList<String> dataUser = new ArrayList<>();
         pin = PIN.getText();
@@ -215,23 +233,26 @@ public class daftarSekarang extends javax.swing.JFrame {
         saldo = saldoTxt.getText();
         double saldoUser = Double.parseDouble(saldo);
         
+        //Kondisi jika semua data yang dimasukkan user sesuai syarat
         if(saldoUser >= 50000 && (pin.equals(konfPin)) && pin.length()==5){
             dataUser.add(pin);
             dataUser.add(saldo);
             dataUser.add(nama);
             dataUser.add(noHp);
             dataUser.add(email); 
-            
+        //Kondisi jika ada data yang tidak sesuai syarat   
         }else {
-         
+            //Kondisi jika pin != 5
             if(pin.length()!=5){
                 JOptionPane.showMessageDialog(null, "Format Pin Tidak Sesuai");
                 konfPIN.setText("");
                 PIN.setText("");
+            //Kondisi jika pin dan konfpin tidak sama
             }else if(!pin.equals(konfPin)){
                 JOptionPane.showMessageDialog(null, "Pin Tidak Sesuai");
                 konfPIN.setText("");
                 PIN.setText("");
+            //Kondisi jika saldo < Rp.50.000
             }else if(saldoUser < 50000){
                 JOptionPane.showMessageDialog(null, "Saldo Anda Kurang");
                 konfPIN.setText("");
@@ -258,6 +279,16 @@ public class daftarSekarang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTxtActionPerformed
 
+    private void kembaliBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kembaliBtnActionPerformed
+    
+    /**
+     * Method untuk memasukkan data akun bank yang baru
+     * ke dalam file txt
+     * @param dataUser
+     * @throws IOException 
+     */
     public static void akunBaru(ArrayList<String> dataUser)throws IOException{
         
         Akun akunBaru = new Akun();
