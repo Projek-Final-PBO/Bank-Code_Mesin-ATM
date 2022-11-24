@@ -141,6 +141,9 @@ public class transfer extends javax.swing.JFrame {
        } else {
            JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
        }
+        JOptionPane.showMessageDialog(this, "Berhasil transfer");
+        norekpen.setText("");
+        jumlah.setText("");
     }//GEN-LAST:event_tranferBtnActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked

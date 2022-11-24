@@ -5,6 +5,7 @@
 package GUI;
 
 import Class.Akun;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,13 +33,13 @@ public class ubahPIN extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        pinlamatxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         pinBarutxt = new javax.swing.JTextField();
         kembaliBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        tranferBtn = new javax.swing.JButton();
+        ubahBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,12 +53,12 @@ public class ubahPIN extends javax.swing.JFrame {
         jLabel2.setText("PIN lama");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, 38));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        pinlamatxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                pinlamatxtActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 200, 32));
+        jPanel2.add(pinlamatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 200, 32));
 
         jLabel3.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
@@ -96,18 +97,18 @@ public class ubahPIN extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Logo_BANK-removebg-preview.png"))); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 170, 170));
 
-        tranferBtn.setBackground(new java.awt.Color(0, 153, 153));
-        tranferBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
-        tranferBtn.setForeground(new java.awt.Color(255, 255, 255));
-        tranferBtn.setText("Ubah");
-        tranferBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-        tranferBtn.setBorderPainted(false);
-        tranferBtn.addActionListener(new java.awt.event.ActionListener() {
+        ubahBtn.setBackground(new java.awt.Color(0, 153, 153));
+        ubahBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
+        ubahBtn.setForeground(new java.awt.Color(255, 255, 255));
+        ubahBtn.setText("Ubah");
+        ubahBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
+        ubahBtn.setBorderPainted(false);
+        ubahBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tranferBtnActionPerformed(evt);
+                ubahBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(tranferBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 66, -1));
+        jPanel2.add(ubahBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 66, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 600, 460));
@@ -130,20 +131,28 @@ public class ubahPIN extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_kembaliBtnActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void pinlamatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinlamatxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_pinlamatxtActionPerformed
 
-    private void tranferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tranferBtnActionPerformed
+    private void ubahBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahBtnActionPerformed
         Akun akun = new Akun();
         String pinB = pinBarutxt.getText();
-        try{
-        akun.setPin(pinB);
-        }
-        catch (Exception e){
+        if(pinlamatxt.getText().equals(akun.getPin())){
+            try{
+                akun.setPin(pinB);
+                
+            }
+            catch (Exception e){
             
+            }
+            JOptionPane.showMessageDialog(this, "Pin berhasil diubah");
+            pinlamatxt.setText("");
+            pinBarutxt.setText("");
+        } else{
+            JOptionPane.showMessageDialog(this, "Sandi salah");
         }
-    }//GEN-LAST:event_tranferBtnActionPerformed
+    }//GEN-LAST:event_ubahBtnActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
         home hom = new home(norek);
@@ -198,9 +207,9 @@ public class ubahPIN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton kembaliBtn;
     private javax.swing.JTextField pinBarutxt;
-    private javax.swing.JButton tranferBtn;
+    private javax.swing.JTextField pinlamatxt;
+    private javax.swing.JButton ubahBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -122,6 +122,8 @@ public class Akun
         // wajib tutup!!!
         bufferedReader.close();
         bufferedWriter.close();
+        fileReader.close();
+        fileWriter.close();
 
         // Delete database yang lama
         file.delete();
@@ -160,6 +162,8 @@ public class Akun
 
         // wajib ditutup
         bufferedReader.close();
+        scan.close();
+        fileReader.close();
         }
         catch (Exception e){
             
@@ -215,7 +219,8 @@ public class Akun
         pw.close();
         bw.flush();
         bw.close();
-        //fileAwal.delete();
+        fw.close();
+        fileAwal.delete();
         
        //Path fileAsli = Paths.get(path);
        //Path fileBaru = Paths.get(temp);
@@ -225,7 +230,7 @@ public class Akun
         //fileTemp.delete();
         
         //File dump = new File(path);
-        //fileTemp.renameTo(fileAwal);
+        fileTemp.renameTo(fileAwal);
         
         //if(fileTemp.renameTo(fileAwal))
         //{
@@ -268,6 +273,7 @@ public class Akun
         bufferedWr.newLine();
         bufferedWr.flush();
         bufferedWr.close();
+        filewr.close();
     }
     
     public boolean checkNoRek(String noReken,String pinen) throws IOException{
@@ -305,6 +311,8 @@ public class Akun
 
         // wajib ditutup
         bufferedReader.close();
+        scan.close();
+        fileReader.close();
         }
         catch (Exception e){
             
@@ -331,6 +339,7 @@ public class Akun
            data = bufferedR.readLine();
        }
         bufferedR.close();
+        fileR.close();
         return adaData;
     }
 
