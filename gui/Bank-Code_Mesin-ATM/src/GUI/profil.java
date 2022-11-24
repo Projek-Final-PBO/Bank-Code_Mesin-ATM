@@ -43,7 +43,6 @@ public class profil extends javax.swing.JFrame {
         kembaliBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        tranferBtn = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         emailtxt = new javax.swing.JTextField();
@@ -85,26 +84,13 @@ public class profil extends javax.swing.JFrame {
                 kembaliBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 66, -1));
+        jPanel2.add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 90, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/userProfil.png"))); // NOI18N
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 170, 170));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Logo_BANK-removebg-preview.png"))); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 170, 170));
-
-        tranferBtn.setBackground(new java.awt.Color(0, 153, 153));
-        tranferBtn.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
-        tranferBtn.setForeground(new java.awt.Color(255, 255, 255));
-        tranferBtn.setText("Ubah");
-        tranferBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-        tranferBtn.setBorderPainted(false);
-        tranferBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tranferBtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(tranferBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 66, -1));
 
         jLabel6.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
@@ -150,10 +136,6 @@ public class profil extends javax.swing.JFrame {
     private void kembaliBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_kembaliBtnActionPerformed
-
-    private void tranferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tranferBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tranferBtnActionPerformed
     
     /**
      * Method untuk menampilkan design dari class Home
@@ -218,6 +200,5 @@ public class profil extends javax.swing.JFrame {
     private javax.swing.JTextField namatxt;
     private javax.swing.JTextField nohptxt;
     private javax.swing.JTextField norektxt;
-    private javax.swing.JButton tranferBtn;
     // End of variables declaration//GEN-END:variables
 }
