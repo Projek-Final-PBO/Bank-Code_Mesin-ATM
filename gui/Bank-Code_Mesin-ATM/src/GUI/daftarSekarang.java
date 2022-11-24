@@ -24,8 +24,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Kelompok Bank Code
+ * Class untuk membuat sebuah akun baru
+ * @author Kelompok 3 (Bank Code)
  */
 public class daftarSekarang extends javax.swing.JFrame {
     
@@ -190,14 +190,25 @@ public class daftarSekarang extends javax.swing.JFrame {
     private void saldoTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saldoTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_saldoTxtActionPerformed
-
+    
+    /**
+     * Method untuk mengatur agar saat user
+     * menekan tombol "Kembali" maka akan
+     * terbuka tampilan dari class login
+     * @param evt 
+     */
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
         login log = new login();
         log.setVisible(true);
         dispose();
     }//GEN-LAST:event_kembaliBtnMouseClicked
-
+    
+    /**
+     * Method untuk mendaftarkan akun bank baru 
+     * @param evt 
+     */
     private void daftarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarBtnActionPerformed
+        //Inisialisasi Variabel yang diperlukann untuk membuat akun bank
         String nama, pin, noHp, email, saldo, konfPin;
         ArrayList<String> dataUser = new ArrayList<>();
         Akun akunBaru = new Akun();
@@ -208,24 +219,28 @@ public class daftarSekarang extends javax.swing.JFrame {
         email = emailTxt.getText();
         saldo = saldoTxt.getText();
         double saldoUser = Double.parseDouble(saldo);
-        
+            
+        //Kondisi jika semua data yang dimasukkan user sesuai syarat
         if(saldoUser >= 50000 && (pin.equals(konfPin)) && pin.length()==5){
             dataUser.add(pin);
             dataUser.add(saldo);
             dataUser.add(nama);
             dataUser.add(noHp);
             dataUser.add(email); 
-            
+          
+        //Kondisi jika ada data yang tidak sesuai syarat  
         }else {
-         
+            //Kondisi jika pin != 5
             if(pin.length()!=5){
                 JOptionPane.showMessageDialog(null, "Format Pin Tidak Sesuai");
                 konfPIN.setText("");
                 PIN.setText("");
+            //Kondisi jika pin dan konfpin tidak sama
             }else if(!pin.equals(konfPin)){
                 JOptionPane.showMessageDialog(null, "Pin Tidak Sesuai");
                 konfPIN.setText("");
                 PIN.setText("");
+            //Kondisi jika saldo < Rp.50.000    
             }else if(saldoUser < 50000){
                 JOptionPane.showMessageDialog(null, "Saldo Anda Kurang");
                 konfPIN.setText("");
@@ -238,6 +253,7 @@ public class daftarSekarang extends javax.swing.JFrame {
         } catch (IOException e) {  
         }
          JOptionPane.showMessageDialog(this, "No Rek Anda:  " + akunBaru.getNomorRekening() + "\nPassword Anda " + pin);
+         //Untuk mengatur agar semua text field kembali kosong
          PIN.setText("");
          konfPIN.setText("");
          namaTxt.setText("");

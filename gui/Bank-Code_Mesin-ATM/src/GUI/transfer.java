@@ -9,8 +9,8 @@ import Class.Transfer;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author taraa
+ * Class untuk melakukan proses transfer uang dari satu akun ke akun lain
+ * @author Kelompok 3 (Bank Code)
  */
 public class transfer extends javax.swing.JFrame {
     private static String norek;
@@ -129,23 +129,37 @@ public class transfer extends javax.swing.JFrame {
     private void norekpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_norekpenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_norekpenActionPerformed
-
+    
+    //Method untuk melakukan proses transfer
     private void tranferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tranferBtnActionPerformed
+        //Memanggil method constructor tanpa parameter
         Akun akun = new Akun();
+        
         akun.isiDataAkun(norek);
+        //Meng-convert ke dalam bentuk Integer
         int jumlahtf = Integer.parseInt(jumlah.getText());
         int saldo = Integer.parseInt(akun.getSaldo());
+        //Memanggil method constructor dengan parameter
         Transfer tf = new Transfer(norek, norekpen.getText());
+        
+        //Kondisi jika saldo lebih besar/sama dengan jumlah yg ingin di transfer
         if(saldo - jumlahtf >= 0){
            tf.Transfer(jumlahtf);
        } else {
            JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
        }
         JOptionPane.showMessageDialog(this, "Berhasil transfer");
+        
+        //Mengatur agar textfield kembali kosong
         norekpen.setText("");
         jumlah.setText("");
     }//GEN-LAST:event_tranferBtnActionPerformed
-
+    
+    /**
+     * Method untuk menampilkan design dari class Home
+     * ketika button "Kembali" di click
+     * @param evt 
+     */
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
         home hom = new home(norek);
         hom.setVisible(true);

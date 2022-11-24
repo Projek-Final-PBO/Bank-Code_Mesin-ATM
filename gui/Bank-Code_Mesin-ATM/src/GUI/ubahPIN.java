@@ -8,8 +8,8 @@ import Class.Akun;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author taraa
+ * Class untuk mengubah PIN
+ * @author kelompok 3 (Bank Code)
  */
 public class ubahPIN extends javax.swing.JFrame {
     private static String norek;
@@ -134,10 +134,16 @@ public class ubahPIN extends javax.swing.JFrame {
     private void pinlamatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinlamatxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pinlamatxtActionPerformed
-
+    
+    //Method untuk mengubah PIN
     private void ubahBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahBtnActionPerformed
+        //Memanggil method constructor tanpa parameter
         Akun akun = new Akun();
+        //getText untuk mendapatkan text yang diinputkan oleh user 
+        //pada text field
         String pinB = pinBarutxt.getText();
+        
+        //Kondisi jika inputan di textfield "PIN lama" = PIN nasabah di database
         if(pinlamatxt.getText().equals(akun.getPin())){
             try{
                 akun.setPin(pinB);
@@ -153,7 +159,12 @@ public class ubahPIN extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Sandi salah");
         }
     }//GEN-LAST:event_ubahBtnActionPerformed
-
+    
+    /**
+     * Method untuk menampilkan design dari class Home
+     * ketika button "Kembali" di click
+     * @param evt 
+     */
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
         home hom = new home(norek);
         hom.setVisible(true);
