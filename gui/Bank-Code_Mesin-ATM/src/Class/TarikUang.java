@@ -13,20 +13,30 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
- *
- * @author DELL
+ * Class ini merupakan turunan dari class Transaksi
+ * @author Kelompok 3 (Bank Code)
  */
 public class TarikUang extends Transaksi {
     
-    
+    /**
+     * Method constructor dengan parameter
+     * @param norek 
+     */
     public TarikUang(String norek){
         super(norek);
     }
     
+    /**
+     * Method getter untuk mendapatkan nilai total transaksi berdasarkan jumlah tarik
+     * @param jumlahtarik
+     * @return hasil
+     */
+    @Override
     public int GetTotalTransaksi(int jumlahtarik){
         Akun akun = new Akun();
         akun.isiDataAkun(super.GetNorek());
         
+        //Meng-convert ke dalam bentuk Integer
         super.SetSaldo(Integer.parseInt(akun.getSaldo()));
         
         int hasil = super.GetSaldo()-jumlahtarik;
