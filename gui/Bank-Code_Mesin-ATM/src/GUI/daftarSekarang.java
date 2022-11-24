@@ -237,7 +237,14 @@ public class daftarSekarang extends javax.swing.JFrame {
             akunBaru.akunBaru(dataUser);
         } catch (IOException e) {  
         }
-         JOptionPane.showMessageDialog(this, "No Rek Anda:  " + akunBaru.getNomorRekening() + "\nPassword Anda " + pin); 
+         JOptionPane.showMessageDialog(this, "No Rek Anda:  " + akunBaru.getNomorRekening() + "\nPassword Anda " + pin);
+         PIN.setText("");
+         konfPIN.setText("");
+         namaTxt.setText("");
+         nomorHPTxt.setText("");
+         emailTxt.setText("");
+         saldoTxt.setText("");
+         
     }//GEN-LAST:event_daftarBtnActionPerformed
 
     private void nomorHPTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomorHPTxtActionPerformed

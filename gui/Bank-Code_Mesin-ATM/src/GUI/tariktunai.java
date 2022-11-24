@@ -23,8 +23,6 @@ public class tariktunai extends javax.swing.JFrame {
         this.norek = norek;
         initComponents();
         setLocationRelativeTo(this);
-        Akun akun = new Akun();
-        akun.isiDataAkun(norek);
     }
 
     /**
@@ -38,8 +36,6 @@ public class tariktunai extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         kembaliBtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        pin = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         tarikBtn = new javax.swing.JButton();
@@ -69,19 +65,6 @@ public class tariktunai extends javax.swing.JFrame {
             }
         });
         jPanel1.add(kembaliBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 66, -1));
-
-        jLabel2.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("PIN");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 30, 38));
-
-        pin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pinActionPerformed(evt);
-            }
-        });
-        jPanel1.add(pin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 207, 36));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Logo_BANK-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, -10, -1, -1));
@@ -134,10 +117,6 @@ public class tariktunai extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_kembaliBtnActionPerformed
 
-    private void pinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pinActionPerformed
-
     private void tarikBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarikBtnActionPerformed
        int IndexCombo;
        String Pilihan;
@@ -151,25 +130,29 @@ public class tariktunai extends javax.swing.JFrame {
        int pilihan = Integer.parseInt(Pilihan);
        int saldo = Integer.parseInt(akun.getSaldo());
        
-       TarikUang tu = new TarikUang(norek);      
+       TarikUang tu = new TarikUang(norek); 
+       if(IndexCombo != 0){
        if(saldo - pilihan >= 0){
            try{
             akun.setHasil(norek, tu.GetTotalTransaksi(pilihan));
            } catch (Exception e){
                
            }
-           
+           JOptionPane.showMessageDialog(this, "Tarik uang berhasil");
        } else {
            JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
        }
+       }else{
+           JOptionPane.showMessageDialog(this, "Pilihan anda salah");
+       }
+       
+       
+       PilihanTarik.setSelectedIndex(0);
        
        
     }//GEN-LAST:event_tarikBtnActionPerformed
 
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
-        Akun akun = new Akun();
-       akun.isiDataAkun(norek);
-       akun.update();
         home hom = new home(norek);
         hom.setVisible(true);
         dispose();
@@ -216,13 +199,11 @@ public class tariktunai extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> PilihanTarik;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton kembaliBtn;
-    private javax.swing.JTextField pin;
     private javax.swing.JButton tarikBtn;
     // End of variables declaration//GEN-END:variables
 }
