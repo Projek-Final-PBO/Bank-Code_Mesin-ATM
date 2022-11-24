@@ -9,13 +9,13 @@ import javax.swing.JOptionPane;
 import GUI.login;
 
 /**
- *
- * @author taraa
+ * Class untuk melakukan proses setor tunai
+ * @author Kelompok 3 (Bank Code)
  */
 public class setorTunai extends javax.swing.JFrame {
     private static String norek;
     /**
-     * Creates new form tariktunai
+     * Creates new form setorTunai
      */
     public setorTunai(String norek) {
         this.norek = norek;
@@ -117,23 +117,29 @@ public class setorTunai extends javax.swing.JFrame {
     private void kembaliBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_kembaliBtnActionPerformed
-
+    
+    //Method untuk melakukan setor uang 
     private void setorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setorBtnActionPerformed
        int IndexCombo;
        String Pilihan;
        IndexCombo = setor.getSelectedIndex();
        Pilihan = (String)setor.getSelectedItem();
        //tes.setText(Pilihan);        
-        
+       
+       //Memanggil method constructor tanpa parameter
        Akun akun = new Akun();
+       
        akun.isiDataAkun(norek);
        //log.nomorRekening;
        
+       //Meng-convert ke dalam bentuk Integer
        int pilihan = Integer.parseInt(Pilihan);
        int saldo = Integer.parseInt(akun.getSaldo());
        
+       //Memanggil method constructor dengan parameter
        SetorUang su = new SetorUang(norek);      
        
+       //Kondisi jika IndexCombo tidak bernilai 0
        if (IndexCombo != 0){
            try{
             akun.setHasil(norek, su.GetTotalTransaksi(pilihan));
@@ -142,13 +148,19 @@ public class setorTunai extends javax.swing.JFrame {
                
            }
            JOptionPane.showMessageDialog(this, "Setor berhasil");
+       //Kondisi jika IndexCombo bernilai 0
        } else if (IndexCombo == 0){
           JOptionPane.showMessageDialog(this, "Anda salah memilih pilihan");
        } else {
           JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
        }
     }//GEN-LAST:event_setorBtnActionPerformed
-
+    
+    /**
+     * Method untuk menampilkan design dari class Home
+     * ketika button "Kembali" di click
+     * @param evt 
+     */
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
         home hom = new home(norek);
         hom.setVisible(true);

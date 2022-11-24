@@ -7,8 +7,8 @@ package GUI;
 import Class.Akun;
 
 /**
- *
- * @author taraa
+ * Class untuk memperlihatkan profil dari nasabah
+ * @author Kelompok 3 (Bank Code)
  */
 public class profil extends javax.swing.JFrame {
     private static String norek;
@@ -154,7 +154,12 @@ public class profil extends javax.swing.JFrame {
     private void tranferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tranferBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tranferBtnActionPerformed
-
+    
+    /**
+     * Method untuk menampilkan design dari class Home
+     * ketika button "Kembali" di click
+     * @param evt 
+     */
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
         home hom = new home(norek);
         hom.setVisible(true);

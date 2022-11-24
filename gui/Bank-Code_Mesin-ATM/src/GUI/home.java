@@ -5,8 +5,8 @@
 package GUI;
 
 /**
- *
- * @author taraa
+ * Class untuk memperlihatkan menu home bagi nasabah yang sudah login
+ * @author Kelompok 3 (Bank Code)
  */
 public class home extends javax.swing.JFrame {
     private static String norek;
@@ -224,43 +224,78 @@ public class home extends javax.swing.JFrame {
     private void KeluarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarBTNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_KeluarBTNActionPerformed
-
+    
+    /**
+     * Method untuk menampilkan design dari class tarikTunai
+     * ketika button "Tarik Tunai" di click
+     * @param evt 
+     */
     private void tarikTunaiBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tarikTunaiBTNMouseClicked
         tariktunai tariktunai = new tariktunai(norek);
         tariktunai.setVisible(true);
         dispose();
     }//GEN-LAST:event_tarikTunaiBTNMouseClicked
-
+    
+    /**
+     * Method untuk menampilkan design dari class Profil
+     * ketika button "Profil" di click
+     * @param evt 
+     */
     private void KeluarBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KeluarBTNMouseClicked
         profil profil = new profil(norek);
         profil.setVisible(true);
         dispose();
     }//GEN-LAST:event_KeluarBTNMouseClicked
-
+    
+    /**
+     * Method untuk menampilkan design dari class Saldo
+     * ketika button "Informasi Saldo" di click
+     * @param evt 
+     */
     private void saldoBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saldoBTNMouseClicked
         saldo Saldo = new saldo(norek);
         Saldo.setVisible(true);
         dispose();
     }//GEN-LAST:event_saldoBTNMouseClicked
-
+    
+    /**
+     * Method untuk menampilkan design dari class Transfer
+     * ketika button "Transfer" di click
+     * @param evt 
+     */
     private void transferBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transferBTNMouseClicked
         transfer tf = new transfer(norek);
         tf.setVisible(true);
         dispose();
     }//GEN-LAST:event_transferBTNMouseClicked
-
+    
+    /**
+     * Method untuk menampilkan design dari class setorTunai
+     * ketika button "Setor Tunai" di click
+     * @param evt 
+     */
     private void SetorTunaiBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetorTunaiBTNMouseClicked
         setorTunai setor = new setorTunai(norek);
         setor.setVisible(true);
         dispose();
     }//GEN-LAST:event_SetorTunaiBTNMouseClicked
-
+    
+    /**
+     * Method untuk menampilkan design dari class ubahPIN
+     * ketika button "Ubah PIN" di click
+     * @param evt 
+     */
     private void ubahPINbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ubahPINbtnMouseClicked
         ubahPIN ubah = new ubahPIN(norek);
         ubah.setVisible(true);
         dispose();
     }//GEN-LAST:event_ubahPINbtnMouseClicked
-
+    
+    /**
+     * Method untuk menampilkan design dari class login
+     * ketika button "Keluar" di click
+     * @param evt 
+     */
     private void KeluarBTN1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KeluarBTN1MouseClicked
         login log = new login();
         log.setVisible(true);

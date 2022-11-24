@@ -1,7 +1,5 @@
 package Class;
 
-
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -17,6 +15,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+/**
+ * Class yang berhubungan dengan akun-akun pada file database
+ * @author Kelompok 3 (Bank Code)
+ */
 public class Akun
 {
 
@@ -29,24 +31,43 @@ public class Akun
     private String email;
     
 
-
+    /**
+     * Method constructor tanpa parameter
+     */
     public Akun()
     {
 
     }
     
+    /**
+     * Method constructor dengan parameter
+     * @param noRek
+     * @param pin
+     * @throws IOException 
+     */
     public Akun(String noRek, String pin) throws IOException
     {
         this.noRek = noRek;
         // Mendapatkan pin dari database
         this.pin = pin;
     }
-
+    
+    /**
+     * Method getter untuk mendapatkan nilai dari PIN
+     * @return this.pin
+     */
     public String getPin()
     {
         return this.pin;
     }
-
+    
+    /**
+     * Method untuk mendapatkan nilai PIN pada database
+     * sesuai dengan parameternya:
+     * @param noRek
+     * @return this.pin
+     * @throws IOException 
+     */
     public String getPin(String noRek) throws IOException
     {
         FileReader fileReader = new FileReader("DatabaseBank.txt");
@@ -75,6 +96,12 @@ public class Akun
         return this.pin;
     }
     
+    /**
+     * Method untuk mengatur/mengubah PIN di database dengan parameter
+     * dan juga mereplace file lama dengan file baru
+     * @param pinBaru
+     * @throws IOException 
+     */
     public void setPin(String pinBaru) throws IOException
     {
         // Membuka file database 
@@ -131,6 +158,10 @@ public class Akun
         temp.renameTo(file);
     }
     
+    /**
+     * Method untuk mengecek isi file DatabaseBank dengan parameter
+     * @param norek 
+     */
     public void isiDataAkun(String norek){
         String path = "DatabaseBank.txt";
         try {
@@ -146,6 +177,7 @@ public class Akun
         Scanner scan = new Scanner(new File(path));
         scan.useDelimiter("[,\\n]");
         
+        //Membaca seluruh data
         while(scan.hasNext())
         {
             this.noRek = scan.next();
@@ -170,6 +202,12 @@ public class Akun
         }
     }
     
+    /**
+     * Method untuk mengubah saldo nasabah jika noRek sesuai 
+     * @param norek
+     * @param hasil
+     * @throws IOException 
+     */
     public void setHasil(String norek, int hasil) throws IOException{
         String path = "DatabaseBank.txt";
         String temp = "TempDatabase.txt";
@@ -196,6 +234,7 @@ public class Akun
         Scanner scan = new Scanner(new File(path));
         scan.useDelimiter("[,\n]");
         
+        //Membaca seluruh data
         while(scan.hasNext())
         {
             noRek = scan.next();
@@ -204,6 +243,7 @@ public class Akun
             username = scan.next();
             noHP = scan.next();
             email = scan.next();
+            //Kondisi jika norek == noRek
             if(noRek.equals(norek)){
                 bw.write(noRek + "," + pin + "," + saldoBaru + "," + username + "," + noHP+ "," + email);
                 //bw.newLine();
@@ -243,7 +283,10 @@ public class Akun
         //}
     }
     
-    
+    /**
+     * Method untuk menghapus file lama dan 
+     * menggantinya dengan file yang baru
+     */
     public void update(){
         String path = "DatabaseBank.txt";
         String temp = "TempDatabase.txt";
@@ -259,23 +302,38 @@ public class Akun
         fileTemp.renameTo(fileAwal);
     }
     
+    /**
+     * Method untuk memasukkan data akun bank yang baru
+     * @param dataUser
+     * @throws IOException 
+     */
     public void akunBaru(ArrayList<String> dataUser)throws IOException{
+        //Membuat noRekening yang random
         int random = (int) (Math.random() * (1000000 - 100000)) + 100000;
-        // convert dia ke string karena data bilangan ini akan di simpan di file database beresktensi .txt
+        //Convert dia ke string karena data bilangan ini akan di simpan di file database beresktensi .txt
         String noRekening= Integer.toString(random);
         
         this.noRek = noRekening;
-        
+        //Membuka file database
         FileWriter filewr = new FileWriter("DatabaseBank.txt", true);
         BufferedWriter bufferedWr = new BufferedWriter(filewr);
         
+        //Menuliskan ke file database dengan format dibawah
         bufferedWr.write(noRekening+ "," + dataUser.get(0) + "," + dataUser.get(1) + "," + dataUser.get(2) + "," + dataUser.get(3)+ "," + dataUser.get(4));
         bufferedWr.newLine();
         bufferedWr.flush();
+        //harus ditutup
         bufferedWr.close();
         filewr.close();
     }
     
+    /**
+     * Method untuk mengecek noRek dari database
+     * @param noReken
+     * @param pinen
+     * @return adaData
+     * @throws IOException 
+     */
     public boolean checkNoRek(String noReken,String pinen) throws IOException{
         
         boolean adaData = true;
@@ -293,6 +351,7 @@ public class Akun
         
         String noReke, pine,saldoe, usernamee,noHPe,emaile;
         
+        //Membaca seluru data/file database
         while(scan.hasNext())
         {
             noReke = scan.next();
@@ -301,6 +360,7 @@ public class Akun
             usernamee = scan.next();
             noHPe = scan.next();
             emaile = scan.next();
+            //Kondisi jika noReken == noReke dan pine == pinen
             if(noReke.equals(noReken) && pine.equals(pinen)){
                 adaData = true;
                 break;
@@ -320,16 +380,24 @@ public class Akun
         return adaData;
     }
     
+    /**
+     * Method untuk mengecek pin dari database
+     * @return adaData
+     * @throws IOException 
+     */
     public boolean checkPin() throws IOException{
         
         boolean adaData = true;
+        //Membuka file database
         FileReader fileR = new FileReader("DatabaseBank.txt");
         BufferedReader bufferedR = new BufferedReader(fileR);
         String data = bufferedR.readLine();
         StringTokenizer stringTokenizer = new StringTokenizer(data,",");
         
+        //Membaca seluruh data
         while(data != null){
            stringTokenizer = new StringTokenizer(data.substring(6),",");
+           //Kondisi jika pin ditemukan di file database
            if(pin.equals(stringTokenizer.nextToken())){
                adaData = true;
                break;
@@ -343,20 +411,42 @@ public class Akun
         return adaData;
     }
 
-    
+    /**
+     * Method getter untuk mendapatkan nilai saldo
+     * @return this.saldo
+     */
     public String getSaldo(){
         return this.saldo;
     }
     
+    /**
+     * Method getter untuk mendapatkan nilai username
+     * @return this.username
+     */
     public String getUserName(){
         return this.username;
     }
+    
+    /**
+     * Method getter untuk mendapatkan nilai No.Hp
+     * @return this.noHP
+     */
     public String getNoHp(){
         return this.noHP;
     }
+    
+    /**
+     * Method getter untuk mendapatkan nilai email
+     * @return this.email
+     */
     public String getEmail(){
         return this.email;
     }
+    
+    /**
+     * Method getter untuk mendapatkan nilai Nomor Rekening
+     * @return this.noRek
+     */
     public String getNomorRekening(){
         return this.noRek;
     }

@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import GUI.login;
 
 /**
- *
- * @author taraa
+ * Class untuk melakukan proses tarik tunai
+ * @author Kelompok 3 (Bank Code)
  */
 public class tariktunai extends javax.swing.JFrame {
     
@@ -116,13 +116,15 @@ public class tariktunai extends javax.swing.JFrame {
     private void kembaliBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_kembaliBtnActionPerformed
-
+    
+    //Method untuk melakukan penarikan uang
     private void tarikBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarikBtnActionPerformed
        int IndexCombo;
        String Pilihan;
        IndexCombo = PilihanTarik.getSelectedIndex();
        Pilihan = (String)PilihanTarik.getSelectedItem();      
-        
+       
+       //Memanggil method constructor tanpa parameter
        Akun akun = new Akun();
        akun.isiDataAkun(norek);
        //log.nomorRekening;
@@ -130,18 +132,22 @@ public class tariktunai extends javax.swing.JFrame {
        int pilihan = Integer.parseInt(Pilihan);
        int saldo = Integer.parseInt(akun.getSaldo());
        
+       //Memanggil method constructor dengan parameter
        TarikUang tu = new TarikUang(norek); 
+       
+       //Kondisi jika IndexCombo tidak bernilai 0
        if(IndexCombo != 0){
-       if(saldo - pilihan >= 0){
-           try{
-            akun.setHasil(norek, tu.GetTotalTransaksi(pilihan));
-           } catch (Exception e){
-               
-           }
-           JOptionPane.showMessageDialog(this, "Tarik uang berhasil");
-       } else {
-           JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
-       }
+            //Kondisi jika saldo bernilai lebih besar/sama dengan pilihan
+            if(saldo - pilihan >= 0){
+                try{
+                 akun.setHasil(norek, tu.GetTotalTransaksi(pilihan));
+                } catch (Exception e){
+
+                }
+                JOptionPane.showMessageDialog(this, "Tarik uang berhasil");
+            } else {
+                JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
+            }
        }else{
            JOptionPane.showMessageDialog(this, "Pilihan anda salah");
        }
@@ -151,7 +157,12 @@ public class tariktunai extends javax.swing.JFrame {
        
        
     }//GEN-LAST:event_tarikBtnActionPerformed
-
+    
+    /**
+     * Method untuk menampilkan design dari class Home
+     * ketika button "Kembali" di click
+     * @param evt 
+     */
     private void kembaliBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliBtnMouseClicked
         home hom = new home(norek);
         hom.setVisible(true);

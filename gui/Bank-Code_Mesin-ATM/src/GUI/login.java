@@ -12,8 +12,8 @@ import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author taraa
+ * Class untuk login ke akun bank
+ * @author Kelompok 3 (Bank Code)
  */
 public class login extends javax.swing.JFrame {
     
@@ -137,8 +137,14 @@ public class login extends javax.swing.JFrame {
     private void pinTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pinTxtActionPerformed
-
+    
+    /**
+     * Method untuk mengecek noRek dan pin
+     * @param evt 
+     */
     private void loginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBTNActionPerformed
+        //getText untuk mendapatkan text yang diinputkan oleh user 
+        //pada text field
         noRek = norekTXT.getText();
         pin = pinTxt.getText();
         
@@ -147,8 +153,8 @@ public class login extends javax.swing.JFrame {
         //akun.isiDataAkun(noRek);
         
         
-        
         try {
+            //Kondisi jika kedua kondisi bernilai True
             if(akun.checkNoRek(noRek, pin)){
                 nasabah = new Akun(noRek,pin);
                 if(pin.equals(akun.getPin())){ 
@@ -161,14 +167,24 @@ public class login extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_loginBTNActionPerformed
-
+    
+    /**
+     * Method untuk menampilkan design dari class Home
+     * ketika button "Login" di click
+     * @param evt 
+     */
     private void loginBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBTNMouseClicked
         home hom = new home(noRek);
         hom.setVisible(true);
         dispose();
         
     }//GEN-LAST:event_loginBTNMouseClicked
-
+    
+    /**
+     * Method untuk menampilkan design dari class daftarSekarang
+     * ketika text "Daftar Sekarang" di click
+     * @param evt 
+     */
     private void daftarSekarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_daftarSekarangMouseClicked
         daftarSekarang reg = new daftarSekarang();
         reg.setVisible(true);
@@ -179,11 +195,18 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_norekTXTActionPerformed
 
-        
+    /**
+     * Method getter untuk mengembalikan nilai nomorRekening
+     * @return this.nomorRekening
+     */   
     public String getNomorRekening(){
         return this.nomorRekening;
     }
     
+    /**
+     * Method Setter untuk mengatur/mengubah nomorRekening
+     * @param nomor 
+     */
     public void setNomorRekening(String nomor){
         this.nomorRekening = nomor;
     }
