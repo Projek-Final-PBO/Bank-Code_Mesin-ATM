@@ -139,6 +139,7 @@ public class ubahPIN extends javax.swing.JFrame {
     private void ubahBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahBtnActionPerformed
         //Memanggil method constructor tanpa parameter
         Akun akun = new Akun();
+        akun.isiDataAkun(norek);
         //getText untuk mendapatkan text yang diinputkan oleh user 
         //pada text field
         String pinB = pinBarutxt.getText();

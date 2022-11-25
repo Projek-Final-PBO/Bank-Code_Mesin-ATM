@@ -152,7 +152,7 @@ public class tariktunai extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(this, "Pilihan anda salah");
        }
        
-       
+       JOptionPane.showMessageDialog(this, "Tarik uang berhasil");
        PilihanTarik.setSelectedIndex(0);
        
        
