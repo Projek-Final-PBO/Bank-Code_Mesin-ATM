@@ -142,6 +142,7 @@ public class setorTunai extends javax.swing.JFrame {
                
            }
            JOptionPane.showMessageDialog(this, "Setor berhasil");
+           setor.setSelectedIndex(0);
        } else if (IndexCombo == 0){
           JOptionPane.showMessageDialog(this, "Anda salah memilih pilihan");
        } else {

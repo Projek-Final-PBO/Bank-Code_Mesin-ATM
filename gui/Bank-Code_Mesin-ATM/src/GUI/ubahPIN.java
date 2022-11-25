@@ -137,6 +137,7 @@ public class ubahPIN extends javax.swing.JFrame {
 
     private void ubahBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahBtnActionPerformed
         Akun akun = new Akun();
+        akun.isiDataAkun(norek);
         String pinB = pinBarutxt.getText();
         if(pinlamatxt.getText().equals(akun.getPin())){
             try{

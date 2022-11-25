@@ -139,6 +139,7 @@ public class tariktunai extends javax.swing.JFrame {
                
            }
            JOptionPane.showMessageDialog(this, "Tarik uang berhasil");
+           PilihanTarik.setSelectedIndex(0);
        } else {
            JOptionPane.showMessageDialog(this, "Saldo Anda kurang!");
        }
